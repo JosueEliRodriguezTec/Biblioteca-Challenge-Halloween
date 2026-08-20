@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+    Biblioteca Challenge
+    © 2026 Josue Rodríguez
+    Creación, diseño y desarrollo: Josue Rodríguez
+-->
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<title>Biblioteca Challenge - Panel de Administración</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="admin.css">
+
+<script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- =========================================
+     LOGIN ADMINISTRATIVO
+========================================= -->
+
+<div id="loginAdmin" class="loginAdmin">
+
+    <div class="loginBox">
+
+        <h1>🔐 Acceso administrativo</h1>
+
+        <p>
+            Ingresa tus credenciales para continuar.
+        </p>
+
+        <form id="formLoginAdmin">
+
+            <input
+                type="email"
+                id="adminEmail"
+                placeholder="Correo electrónico"
+                autocomplete="username"
+                required>
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Contraseña"
+                autocomplete="current-password"
+                required>
+
+            <button type="submit" id="btnLoginAdmin">
+                🔐 Entrar
+            </button>
+
+        </form>
+
+        <p id="errorLogin" class="errorLogin"></p>
+
+    </div>
+
+</div>
+
+
+<div id="panelAdmin" style="display:none;">
+<div class="contenedor">
+
+    <div class="card">
+
+        <h1>📚 Biblioteca Challenge</h1>
+
+        <h2>Panel de Administración</h2>
+
+        <div class="contador">
+
+            👥 Participantes registrados
+
+            <span id="totalParticipantes">
+
+                0
+
+            </span>
+
+        </div>
+
+        <div class="busqueda">
+
+            <input
+                type="text"
+                id="buscar"
+                placeholder="Buscar por nombre o matrícula">
+
+        </div>
+
+        <div class="tablaContenedor">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Nombre</th>
+
+                        <th>Matrícula</th>
+
+                        <th>Semestre</th>
+
+                        <th>Satisfacción</th>
+
+                        <th>Fecha</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaParticipantes">
+
+                    <!-- Firebase agregará aquí los registros -->
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="botones">
+
+            <button id="actualizar">
+
+                🔄 Actualizar
+
+            </button>
+
+            <button id="btnExportar" class="btnExportar">
+
+                📥 Exportar Excel
+
+            </button>
+
+        </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="creditos">
+    © 2026 Josue E. Rodríguez
+</div>
+
+
+<script type="module" src="admin.js"></script>
+
+</body>
+
+</html>

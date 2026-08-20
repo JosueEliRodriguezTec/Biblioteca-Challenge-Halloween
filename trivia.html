@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+    Biblioteca Challenge
+    © 2026 Josue Rodríguez
+    Creación, diseño y desarrollo: Josue Rodríguez
+-->
+<html lang="es">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<title>Biblioteca Challenge - Trivia</title>
+
+<link rel="stylesheet" href="trivia.css">
+
+
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="card">
+
+        <h1>📚Trivia📚</h1>
+
+        <h2>Nivel 3</h2>
+
+        <h3 id="contadorPregunta">
+            Pregunta 1 de 4
+        </h3>
+
+       <div id="pregunta" class="pregunta">
+    Aquí aparecerá la pregunta
+</div>
+
+        <button class="respuesta" id="r0"></button>
+
+        <button class="respuesta" id="r1"></button>
+
+        <button class="respuesta" id="r2"></button>
+
+        <button class="respuesta" id="r3"></button>
+
+        <!--<div id="progreso">
+            ● ○ ○ ○
+        </div> -->
+
+    </div>
+
+</div>
+
+<!-- Modal del libro -->
+<div id="modalLibro">
+
+    <div id="ventanaLibro">
+
+        <iframe id="iframeLibro"></iframe>
+
+        <button onclick="cerrarLibro()">
+            Continuar jugando
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Medalla de Oro -->
+<div id="medallaOro" class="medallaModal">
+
+    <div class="medallaBox">
+
+        <h1>🎉 ¡Felicidades!</h1>
+
+        <div class="medallaIcono">
+            🥇
+        </div>
+
+        <h2>MEDALLA DE ORO</h2>
+
+        <p>
+
+            Has completado los tres niveles del
+            <strong>Biblioteca Challenge.</strong>
+
+            <br><br>
+
+            ✔ Nivel 1 - Biblio Crush
+
+            <br>
+
+            ✔ Nivel 2 - Pac-Man
+
+            <br>
+
+            ✔ Nivel 3 - Trivia
+
+            <br><br>
+
+            Gracias por conocer los servicios,
+            espacios y recursos de la Biblioteca.
+
+        </p>
+
+        <button onclick="finalizarJuego()">
+
+            Finalizar
+
+        </button>
+
+    </div>
+
+</div>  
+
+<div id="modalIncorrecto" class="modalIncorrecto">
+
+    <div class="ventanaIncorrecto">
+
+        <h2>❌ Respuesta incorrecta</h2>
+
+        <p>
+
+            Inténtalo nuevamente.
+
+        </p>
+
+        <button onclick="cerrarIncorrecto()">
+
+            Continuar
+
+        </button>
+
+    </div>
+
+</div>
+<div class="creditos">
+    © 2026 Josue E. Rodríguez
+</div>
+
+<script src="trivia.js"></script>
+</body>
+
+</html>

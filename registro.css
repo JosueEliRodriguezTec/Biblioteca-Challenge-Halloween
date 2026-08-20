@@ -1,0 +1,407 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    font-family:"Nunito",sans-serif;
+
+    background:#0d1b2a;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+        overflow:hidden;
+
+
+}
+
+.contenedor{
+
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+}
+
+.card{
+
+    width:100%;
+    max-width:430px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:28px 24px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+h1{
+
+    text-align:center;
+
+    color:#1976d2;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+.subtitulo{
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:20px;
+
+    margin-bottom:35px;
+
+}
+
+.grupo{
+
+    margin-bottom:16px;
+
+}
+
+label{
+
+    display:block;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#444;
+
+    margin-bottom:8px;
+
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:16px;
+
+    border:2px solid #d9d9d9;
+
+    border-radius:15px;
+
+    font-size:18px;
+
+    font-family:"Nunito",sans-serif;
+
+    transition:.25s;
+
+    outline:none;
+
+}
+
+input:focus,
+select:focus{
+
+    border-color:#1976d2;
+
+    box-shadow:0 0 10px rgba(25,118,210,.20);
+
+}
+
+button{
+
+    width:100%;
+
+    margin-top:18px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#2f56d6;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:800;
+
+    font-family:"Nunito",sans-serif;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#4169e1;
+
+    transform:scale(1.02);
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+@media(max-width:500px){
+
+    .card{
+
+        padding:28px 22px;
+
+    }
+
+    h1{
+
+        font-size:40px;
+
+    }
+
+    .subtitulo{
+
+        font-size:18px;
+
+    }
+
+}
+
+.matriculaBox{
+
+    display:flex;
+
+    align-items:center;
+
+    border:2px solid #d9d9d9;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+.prefijo{
+
+    background:#f1f3f5;
+
+    padding:16px 18px;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    color:#1976d2;
+
+    border-right:2px solid #d9d9d9;
+
+}
+
+.matriculaBox input{
+
+    border:none;
+
+    box-shadow:none;
+
+    flex:1;
+
+}
+
+.matriculaBox input:focus{
+
+    box-shadow:none;
+
+}
+
+.mensajeFinal{
+
+    display:none;
+
+    text-align:center;
+
+}
+
+.iconoFinal{
+
+    font-size:70px;
+
+    margin-bottom:10px;
+
+}
+
+.mensajeFinal h1{
+
+    color:#1976d2;
+
+    font-size:36px;
+
+    margin-bottom:20px;
+
+}
+
+.mensajeFinal p{
+
+    color:#555;
+
+    font-size:19px;
+
+    line-height:1.5;
+
+    margin-bottom:15px;
+
+}
+
+.mensajeFinal strong{
+
+    color:#1976d2;
+
+}
+
+#btnBiblioteca{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#2f56d6;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    font-family:"Nunito",sans-serif;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#btnBiblioteca:hover{
+
+    background:#4169e1;
+
+    transform:scale(1.02);
+
+}
+
+#btnBiblioteca:active{
+
+    transform:scale(.98);
+
+}
+
+@media(max-width:500px){
+
+    .mensajeFinal h1{
+
+        font-size:30px;
+
+    }
+
+    .mensajeFinal p{
+
+        font-size:17px;
+
+    }
+
+    .iconoFinal{
+
+        font-size:60px;
+
+    }
+
+}
+
+.mensajeFinal {
+    display: none;
+    text-align: center;
+}
+/* =========================================
+   CRÉDITO DEL DESARROLLADOR
+========================================= */
+
+.creditos {
+    position: fixed;
+    bottom: 8px;
+    right: 10px;
+
+    font-size: 10px;
+    color: white;
+
+    opacity: 0.35;
+
+    z-index: 9999;
+
+    pointer-events: none;
+}
+
+/* =========================================
+   SATISFACCIÓN
+========================================= */
+
+.satisfaccion {
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+.satisfaccion > label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.opcionesSatisfaccion {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+}
+
+.opcionSatisfaccion {
+    flex: 1;
+    height: 60px;
+    border: 2px solid transparent;
+    border-radius: 18px;
+    background: #f1f3f5;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.opcionSatisfaccion:hover {
+    transform: scale(1.03);
+}
+
+.opcionSatisfaccion:active {
+    transform: scale(0.97);
+}

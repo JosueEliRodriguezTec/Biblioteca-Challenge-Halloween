@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+    Biblioteca Challenge
+    © 2026 Josue Rodríguez
+    Creación, diseño y desarrollo: Josue Rodríguez
+-->
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<title>Biblioteca Challenge - Registro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="registro.css">
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="card">
+
+        <h1>🎉 ¡Felicidades!</h1>
+
+        <h2>Biblioteca Challenge</h2>
+
+        <p class="mensaje">
+
+            Has completado los tres niveles.
+
+            <br><br>
+
+            Registra tus datos para finalizar tu participación.
+
+        </p>
+
+        <form id="formRegistro">
+
+            <label for="nombre">
+                Nombre completo
+            </label>
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Escribe tu nombre"
+                required>
+
+            <label for="matricula">
+    Matrícula
+</label>
+
+<div class="matriculaBox">
+
+    <span class="prefijo">
+        A
+    </span>
+
+   <input
+    type="text"
+    id="matricula"
+    placeholder="01234567"
+    maxlength="8"
+    inputmode="numeric"
+    autocomplete="off"
+    required
+    oninput="this.value=this.value.replace(/\D/g,'')">
+
+</div>
+
+            <label for="semestre">
+                Semestre
+            </label>
+
+            <select id="semestre" required>
+
+                <option value="">
+                    Selecciona un semestre
+                </option>
+
+                <option value="1">1° Semestre</option>
+                <option value="2">2° Semestre</option>
+                <option value="3">3° Semestre</option>
+                <option value="4">4° Semestre</option>
+                <option value="5">5° Semestre</option>
+                <option value="6">6° Semestre</option>
+
+            </select>
+
+            <div class="satisfaccion">
+
+    <label>
+        ¿Cómo fue tu experiencia?
+    </label>
+
+    <div class="opcionesSatisfaccion">
+
+        <button type="button" class="opcionSatisfaccion" data-satisfaccion="Feliz">
+            😊
+        </button>
+
+        <button type="button" class="opcionSatisfaccion" data-satisfaccion="Regular">
+            😐
+        </button>
+
+        <button type="button" class="opcionSatisfaccion" data-satisfaccion="Triste">
+            😞
+        </button>
+
+    </div>
+
+</div>
+
+            <button type="submit">
+               
+
+                Finalizar registro
+
+            </button>
+
+        </form>
+
+         <div id="mensajeFinal" class="mensajeFinal">
+
+        <div class="iconoFinal">
+            🎉
+        </div>
+
+        <h1>¡Registro completado!</h1>
+
+        <p>
+            Tu participación en
+            <strong>Biblioteca Challenge</strong>
+            ha sido registrada correctamente.
+        </p>
+
+        <p>
+            Si quieres saber mas sobre nuestros recursos oprime el boton
+        </p>
+
+        <button type="button" id="btnBiblioteca">
+            📚 Ir a Biblioteca
+        </button>
+
+    </div>
+
+</div>
+
+    </div>
+<div class="creditos">
+    © 2026 Josue E. Rodríguez
+</div>
+
+
+<script type="module" src="registro.js"></script>
+
+</body>
+</html>

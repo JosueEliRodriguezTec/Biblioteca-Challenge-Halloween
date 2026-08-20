@@ -1,0 +1,722 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0d1b2a;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    justify-content:center;
+    min-height:100vh;
+    padding-top:100px;
+    margin:0;
+    overflow:hidden;
+
+    align-items:center;
+
+
+
+}
+
+#contenedor{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:flex-start;
+
+}
+
+h1{
+
+    font-size:28px;
+    margin-bottom:4px;
+
+}
+
+h2{
+
+    font-size:18px;
+    margin-bottom:10px;
+
+}
+
+#hud{
+    display:flex;
+    justify-content:space-around;
+    background:#1b263b;
+    padding:8px;
+    border-radius:10px;
+    margin-bottom:10px;
+    font: size 16px;
+}
+
+#laberinto{
+
+     width:min(92vw,92vh);
+    height:min(92vw,92vh);
+
+    max-width:700px;
+    max-height:700px;
+
+    display:grid;
+
+    border:5px solid #2196f3;
+    border-radius:15px;
+
+    overflow:hidden;
+
+    background:black;
+    touch-action:none;
+
+}
+
+#controles{
+    display:grid;
+    grid-template-columns:repeat(3,85px);
+    grid-template-rows:repeat(3,85px);
+    justify-content:center;
+    align-items:center;
+    gap:2px;
+    margin-top:12px;
+     touch-action:none;
+}
+.filaControles{
+
+    display:flex;
+
+    gap:40px;
+
+}
+#controles div{
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+#controles button{
+
+    background:transparent;
+
+    border:none;
+
+    padding:0;
+
+    cursor:pointer;
+
+    width:auto;
+
+    height:auto;
+
+    touch-action: manipulation;
+
+
+    -webkit-user-select:none;
+
+    user-select:none;
+
+    -webkit-touch-callout:none;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+#controles img{
+
+    width:82px;
+    height:82px;
+
+    transition:.15s;
+
+    user-select:none;
+    -webkit-user-select:none;
+    -webkit-user-drag:none;
+
+    pointer-events:none;
+
+}
+#controles button:active img{
+
+    transform:scale(.90);
+
+}
+
+
+
+#modalLibro{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+}
+
+#ventanaLibro{
+    width:90%;
+    height:90%;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+#iframeLibro{
+    flex:1;
+    border:none;
+}
+
+#ventanaLibro button{
+    padding:18px;
+    font-size:20px;
+    border:none;
+    background:#1976d2;
+    color:white;
+    cursor:pointer;
+}
+
+.casilla{
+    width:100%;
+    height:100%;
+    background:transparent;
+}
+
+.muro{
+    background:#1d4ed8;
+    border:1px solid #2563eb;
+    border-radius:4px;
+}
+
+.camino{
+    background:#050505;
+}
+
+.pacman{
+
+    width:100%;
+    height:100%;
+
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:70% 70%;
+
+}
+
+@keyframes comer{
+    from{
+        background-position:0 0;
+    }
+
+    to{
+        background-position:100% 0;
+    }
+}
+.derecha{
+    transform:rotate(0deg);
+}
+
+.abajo{
+    transform:rotate(90deg);
+}
+
+.izquierda{
+    transform:rotate(180deg);
+}
+
+.arriba{
+    transform:rotate(270deg);
+}
+
+#arriba{
+    grid-column:2;
+    grid-row:1;
+}
+
+#izquierda{
+    grid-column:1;
+    grid-row:2;
+}
+
+#derecha{
+    grid-column:3;
+    grid-row:2;
+}
+
+#abajo{
+    grid-column:2;
+    grid-row:3;
+}
+
+.puntito{
+
+    background: black;
+    position: relative;
+
+}
+
+.puntito::after{
+
+    content: "";
+
+    width: 12px;
+height: 12px;
+
+    background: #ffd54f;
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+}
+
+.libro{
+
+    background: black;
+    position: relative;
+
+}
+
+.libro::after{
+
+    content: "";
+
+    width: 20px;
+    height: 20px;
+
+    background: #ffd54f;
+    border-radius: 50%;
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%,-50%);
+
+}
+
+#mensajeMonedas{
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    display: none;
+
+    z-index: 9999;
+
+    background: gold;
+
+    color: white;
+
+    font-size: 40px;
+
+    padding: 20px 40px;
+
+    border-radius: 20px;
+}
+
+@keyframes aparecer{
+
+    0%{
+
+        opacity:0;
+
+        transform:translate(-50%,-30%) scale(.5);
+
+    }
+
+    30%{
+
+        opacity:1;
+
+        transform:translate(-50%,-50%) scale(1.3);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:translate(-50%,-80%) scale(1);
+
+    }
+
+}
+
+.medallaModal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.medallaBox{
+
+    width:90%;
+
+    max-width:500px;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    text-align:center;
+
+    animation:aparece .5s ease;
+
+            color:#333;
+
+
+
+}
+
+.medallaIcono{
+
+    font-size:120px;
+
+    margin:20px 0;
+
+}
+
+.medallaBox button{
+
+    margin-top:25px;
+
+    padding:15px 40px;
+
+    font-size:20px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#1976d2;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+@keyframes aparece{
+
+    from{
+
+        transform:scale(.5);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    #laberinto{
+
+        height:72vh;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    #controles button{
+
+        width:65px;
+        height:65px;
+        font-size:28px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    #controles{
+
+        gap:5px;
+
+    }
+
+    #controles div{
+
+        gap:8px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    #laberinto{
+
+        width:95vw;
+        height:95vw;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    h1,
+    h2{
+
+        display:none;
+
+    }
+
+    #hud{
+
+    width:95%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:16px;
+
+    padding:8px 12px;
+
+}
+
+    #laberinto{
+
+        width:95vw;
+        height:95vw;
+
+    }
+
+    #controles{
+
+        margin-top:8px;
+
+    }
+
+    #controles button{
+
+        width:70px;
+        height:70px;
+
+        font-size:32px;
+
+    }
+
+}
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    touch-action:manipulation;
+
+
+    overscroll-behavior:none;
+
+    -webkit-user-select:none;
+    user-select:none;
+
+    -webkit-touch-callout:none;
+
+}
+
+.medallaBox h1{
+
+       margin:10px 0;
+
+    color:#1976d2;
+
+    font-size:36px;
+
+}
+
+.medallaBox h2{
+
+    margin:10px 0;
+
+    color:#555;
+
+    font-size:26px;
+
+}
+
+.medallaBox p{
+
+     margin-top:15px;
+
+    font-size:22px;
+
+    color:#555;
+
+}
+
+@media (max-width:768px){
+
+    .medallaBox h1{
+
+        font-size:28px;
+
+    }
+
+    .medallaBox h2{
+
+        font-size:22px;
+
+    }
+
+    .medallaBox p{
+
+        font-size:18px;
+
+    }
+
+}
+
+#contadorMovil{
+
+    position:fixed;
+
+    top:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:rgba(0,0,0,.75);
+
+    color:#ffd54f;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    z-index:9999;
+
+}
+
+#hud{
+    display: none !important;
+}
+
+#izquierda{
+    margin-right:-10px;
+}
+
+#derecha{
+    margin-left:-10px;
+}
+
+#arriba{
+    margin-bottom:-10px;
+}
+
+#abajo{
+    margin-top:-10px;
+}
+
+.pregunta{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+#numeroPreguntaGrande{
+
+    font-size:60px;
+
+    font-weight:800;
+
+    color:#2b57d9;
+
+    min-width:60px;
+
+    text-align:center;
+
+}   
+
+#textoPregunta{
+
+    flex:1;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+}
+
+/* =========================================
+   CRÉDITO DEL DESARROLLADOR
+========================================= */
+
+.creditos {
+    position: fixed;
+    bottom: 8px;
+    right: 10px;
+
+    font-size: 10px;
+    color: white;
+
+    opacity: 0.35;
+
+    z-index: 9999;
+
+    pointer-events: none;
+}

@@ -1,0 +1,1121 @@
+*{
+
+    -webkit-touch-callout: none;
+
+    -webkit-user-select: none;
+
+    -khtml-user-select: none;
+
+    -moz-user-select: none;
+
+    -ms-user-select: none;
+
+    user-select: none;
+
+}
+    
+    
+    body {
+
+        -webkit-user-select:none;
+
+    user-select:none;
+
+    -webkit-touch-callout:none;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
+        font-family: "Nunito", sans-serif !important;
+        background-image: url("img/fondo.jpg");
+        overflow: hidden;
+touch-action: none;
+    }
+@media (max-width:992px) {
+    .board{
+        width: 100% !important;
+    }
+}
+    .board {
+        position: absolute;
+        justify-content: center;
+        padding: 30px 10px;
+        width: fit-content;
+        border-radius: 20px;
+        background-color: rgba(247, 224, 245, 0.532);
+        gap: 5px;
+        display: grid;
+        /* border: 2px solid red; */
+        grid-template-columns: repeat(8, 50px);
+        ;
+        grid-template-rows: repeat(8, 50px);
+        ;
+    }
+
+    .box {
+        /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
+        /* border: 1px solid white; */
+        z-index: 1;
+        height: 60px;
+        width: 80px;
+        background-size: cover;
+        object-fit: cover;
+        cursor: crosshair;
+        width: 50px;
+        -webkit-user-drag:none;
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    -webkit-touch-callout:none;
+    }
+
+    .flow {
+        z-index: 1;
+        animation: fn 0.5s ease forwards;
+    }
+
+    @keyframes fn {
+        from {
+            transform: translateY(-100%);
+        }
+
+        to {
+            transform: translateY(0%);
+        }
+    }
+    .board1{
+        /* display: block !important; */
+        height: 90%;
+        position: absolute;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
+        background-position: center;
+        background-image: url("img/Portada.png");
+        background-color: rgb(94, 46, 236);
+        z-index: 3;
+
+        -webkit-user-select:none;
+
+    user-select:none;
+
+    -webkit-touch-callout:none;
+
+
+    }
+    .str{
+        position: absolute;
+        bottom: 140px;
+        left: 23%;
+background:transparent;
+color: transparent;
+border: none;
+        padding: 40px 150px;
+    }
+   .h{
+       position:absolute;
+       left: 10px;
+       padding: 10px;
+       top: 6%;
+/* margin: 10px 0px; */
+       color: white;
+    }
+    .h0{
+       position:absolute;
+       right: 10px;
+       padding: 10px;
+       top: 6%;
+/* margin: 10px 0px; */
+       color: white;
+    }
+    .h0>h5{
+        text-transform: uppercase;
+        padding: 10px;
+        border-radius: 7px;
+    margin-top: -10px;
+        background-color: white;
+    color: rgb(255, 98, 124) !important; 
+    }
+    .h>h5{
+        text-transform: uppercase;
+        padding: 10px;
+        border-radius: 7px;
+    margin-top: -10px;
+        background-color: white;
+    color: rgb(255, 98, 124) !important; 
+
+}
+i{
+    font-size: 24px;
+}
+/*==========================
+   PANTALLA FINAL
+==========================*/
+
+.finalScreen{
+
+    display:none;
+
+    width:100%;
+    height:100%;
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+.resultBox{
+
+    width:75%;
+    max-width:420px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.82);
+
+    text-align:center;
+
+    backdrop-filter: blur(5px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+.resultBox h1{
+
+    color:#ff5b8c;
+
+    margin:10px 0;
+
+}
+
+.resultBox h2{
+
+    color:#ff5b8c;
+
+}
+
+.subtitulo{
+
+    color:#666;
+
+    font-size:22px;
+
+}
+
+#finalScore{
+
+    font-size:70px;
+
+    color:#ff5b8c;
+
+    margin:15px 0;
+
+}
+
+.gracias{
+
+    margin-top:20px;
+
+    color:#555;
+
+    font-size:20px;
+
+}
+@media (max-width: 768px) {
+
+    .board {
+
+        grid-template-columns: repeat(8, 44px);
+        grid-template-rows: repeat(8, 44px);
+
+    }
+
+    .box {
+
+        width: 44px;
+        height: 44px;
+
+    }
+
+}
+.introModal{
+
+    display:none;
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.7);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.introBox{
+
+    width:80%;
+
+    max-width:420px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:28px;
+
+    text-align:center;
+
+}
+
+.coinAnimation{
+
+    position:fixed;
+
+    left:50%;
+
+    top:50%;
+
+    font-size:70px;
+
+    font-weight:bold;
+
+    color:#ffbf00;
+
+    text-shadow:0 0 15px gold;
+
+    pointer-events:none;
+
+    z-index:999;
+
+    visibility:hidden;
+
+}
+
+.coinAnimation.show{
+
+    visibility:visible;
+
+    animation:ganarMonedas 2s ease forwards;
+
+}
+
+@keyframes ganarMonedas{
+
+    0%{
+
+        opacity:0;
+
+        transform:translate(-50%,40px) scale(.6);
+
+    }
+
+    25%{
+
+        opacity:1;
+
+        transform:translate(-50%,0px) scale(1);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:translate(-50%,-120px) scale(1.3);
+
+    }
+
+}
+.resultBox{
+
+    position:relative;
+
+}
+
+/*==========================
+    PANTALLA DE LIBROS
+==========================*/
+
+.pantallaLibros{
+
+   width:90%;
+    max-width:700px;
+
+    margin:auto;
+
+    padding:15px;
+
+    background:rgba(255,255,255,.88);
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+}
+
+.librosGrid{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+    margin-top:12px;
+
+}
+.libro{
+
+    background:white;
+
+   border-radius:12px;
+
+    padding:12px 15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.libro img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+}
+
+.libro button{
+
+    margin-top:8px;
+
+    padding:8px 16px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ff5b8c;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+.libro button:hover{
+
+    background:#e54779;
+
+}
+
+#continuar{
+
+    width:80%;
+    max-width:340px;
+
+    margin-top:20px;
+
+    padding:18px;
+
+    border:none;
+    border-radius:18px;
+
+    background:#2f56d6;
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+#continuar:hover:not(:disabled){
+
+    background:#2348bf;
+
+    transform:scale(1.03);
+
+}
+
+#continuar:disabled{
+
+    background:#2f56d6;
+
+    color:white;
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    box-shadow:none;
+
+}
+
+.libro button:disabled{
+
+    background:#bdbdbd;
+
+    color:#555;
+
+    cursor:not-allowed;
+
+    opacity:.8;
+
+}
+
+
+
+@media (max-width: 768px){
+
+    .pantallaLibros{
+
+        width:95%;
+        padding:20px;
+        margin:10px auto;
+
+    }
+
+    .librosGrid{
+
+        grid-template-columns:1fr;
+        gap:8px;
+
+    }
+
+    .libro{
+
+        padding:15px;
+
+    }
+
+    .libro h2{
+            margin:0 0 6px;
+
+        font-size:22px;
+
+    }
+
+    .libro p{
+
+        margin:0;
+
+    font-size:15px;
+
+    line-height:1.3;
+
+    }
+
+    .libro button{
+
+        width:100%;
+        font-size:18px;
+        padding:12px;
+
+    }
+
+    h1{
+
+        font-size:30px;
+
+    }
+
+    h2{
+
+        font-size:22px;
+
+    }
+
+    h3{
+
+        font-size:20px;
+
+    }
+
+}
+
+/*==========================
+    MEDALLA BRONCE
+==========================*/
+
+.medallaModal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.medallaBox{
+
+    width:90%;
+
+    max-width:500px;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    text-align:center;
+
+    animation:aparece .5s ease;
+
+}
+
+.medallaIcono{
+
+    font-size:120px;
+
+    margin:20px 0;
+
+}
+
+.medallaBox button{
+
+    margin-top:25px;
+
+    padding:15px 40px;
+
+    font-size:20px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#ff5b8c;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+@keyframes aparece{
+
+    from{
+
+        transform:scale(.5);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+
+/*==========================
+      MODAL LIBRO
+==========================*/
+
+#modalLibro{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+#ventanaLibro{
+
+    width:90%;
+
+    height:90%;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+#iframeLibro{
+
+    flex:1;
+
+    border:none;
+
+}
+
+#ventanaLibro button{
+
+    width:100%;
+
+    height:75px;
+
+    margin:0;
+
+    border:none;
+
+    border-radius:0;
+
+    background:#2f56d6;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+#ventanaLibro button:hover{
+
+    background:#2348bf;
+
+}
+
+.introBox button{
+
+    margin-top:25px;
+
+    width:80%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#2f56d6;
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+.introBox button:hover{
+
+    transform:scale(1.03);
+
+}
+
+.introBox button:active{
+
+    transform:scale(.97);
+
+}
+
+html,
+body{
+
+    -webkit-touch-callout:none;
+
+    -webkit-user-select:none;
+
+    user-select:none;
+
+    touch-action:none;
+
+}
+
+.h0{
+
+    display:none;
+
+}
+
+#rel{
+
+    display:none;
+
+}
+
+#mut{
+
+    display:none;
+
+}
+
+#btnLibros{
+
+    margin-top:25px;
+
+    width:80%;
+
+    max-width:320px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#2f56d6;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+#btnLibros:hover{
+
+    transform:scale(1.03);
+
+}
+
+#btnLibros:active{
+
+    transform:scale(.97);
+
+}
+
+#btnLibros,
+#continuar,
+.medallaBox button{
+
+    width:80%;
+    max-width:330px;
+
+    padding:16px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#2f56d6;
+
+    color:white;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+#btnLibros:hover,
+#continuar:hover,
+.medallaBox button:hover{
+
+    transform:scale(1.03);
+
+}
+
+#btnLibros:active,
+#continuar:active,
+.medallaBox button:active{
+
+    transform:scale(.97);
+
+}
+
+#continuar:disabled{
+
+    background:#2f56d6 !important;
+
+    color:white !important;
+
+    opacity:.45;
+
+    cursor:not-allowed;
+
+    -webkit-text-fill-color:white;
+
+}
+
+/* =========================================
+   LOGIN eLIBRO
+========================================= */
+
+.loginElibro {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.85);
+
+    z-index: 99999;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.loginBox {
+
+    width: 95%;
+    height: 95%;
+
+    background: white;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+#iframeElibro {
+
+    width: 100%;
+    height: calc(100% - 70px);
+
+    border: none;
+
+}
+
+
+#btnContinuar {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 70px;
+
+    border: none;
+
+    background: #007bff;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+/* =========================================
+   LOGIN INICIAL
+========================================= */
+
+#inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#textoLogin {
+    font-size: 18px;
+    font-weight: 700;
+    max-width: 320px;
+    margin: 15px auto;
+}
+
+.loginBtn {
+    display: block;
+
+    padding: 14px 25px;
+
+    margin: 10px auto;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #007bff;
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.loginBtn:hover {
+    transform: scale(1.03);
+}
+
+#btnIniciarJuego:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    filter: grayscale(0.5);
+}
+
+#textoLogin {
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 320px;
+    margin: 15px auto;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.estadoLogin {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    padding: 5px 9px;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 7px;
+
+    font-family: 'Nunito', sans-serif;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    z-index: 20;
+
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.estadoLogin:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* =========================================
+   TITULO INICIAL
+========================================= */
+
+#inicio h1 {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    line-height: 1.2;
+
+    margin: 10px auto 15px;
+
+    text-shadow:
+        2px 2px 4px rgba(0, 0, 0, 0.9);
+
+    max-width: 250px;
+}
+
+/* =========================================
+   CRÉDITO DEL DESARROLLADOR
+========================================= */
+
+.creditos {
+    position: fixed;
+    bottom: 8px;
+    right: 10px;
+
+    font-size: 10px;
+    color: white;
+
+    opacity: 0.35;
+
+    z-index: 9999;
+
+    pointer-events: none;
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+    Biblioteca Challenge
+    © 2026 Josue Rodríguez
+    Creación, diseño y desarrollo: Josue Rodríguez
+-->
+<html lang="es">
+
+<head>
+    
+    <meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+minimum-scale=1.0,
+user-scalable=no,
+viewport-fit=cover">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <meta charset="UTF-8">
+    
+    <title>Biblioteca Challenge - Nivel 2</title>
+
+    <link rel="stylesheet" href="pacman.css">
+</head>
+
+<body>
+
+    <div id="contenedor">
+
+        <h1>Biblioteca Challenge</h1>
+        <h2>Nivel 2 - Pac-Man</h2>
+
+        <div id="hud">
+
+            <div>
+                🪙 Monedas:
+                <span id="monedas">30</span>
+            </div>
+
+            <div>
+                ❤️ Vidas:
+                <span id="vidas">3</span>
+            </div>
+
+            <div>
+                ⏱️ Tiempo:
+                <span id="tiempo">60</span>
+            </div>
+
+        </div>
+
+        <div id="laberinto">
+
+            <!-- Aquí irá el mapa del juego -->
+
+        </div>
+
+       <div id="controles">
+
+    <div></div>
+
+    <button id="arriba">
+        <img src="img/arriba.png">
+    </button>
+
+    <div></div>
+
+    <button id="izquierda">
+        <img src="img/izquierda.png">
+    </button>
+
+    <div></div>
+
+    <button id="derecha">
+        <img src="img/derecha.png">
+    </button>
+
+    <div></div>
+
+    <button id="abajo">
+        <img src="img/abajo.png">
+    </button>
+
+    <div></div>
+
+</div>
+
+</div>
+
+    <!-- Modal del libro -->
+
+   <!-- Modal del libro -->
+<div id="modalLibro">
+
+    <div id="ventanaLibro">
+
+        <iframe id="iframeLibro"></iframe>
+
+        <button onclick="cerrarLibro()">
+            Continuar jugando
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- Medalla de Plata -->
+<div id="medallaPlata" class="medallaModal">
+
+    <div class="medallaBox">
+
+    <h1>🎉 ¡Felicidades!</h1>
+
+    <div class="medallaIcono">
+        🥈
+    </div>
+
+    <h2>MEDALLA DE PLATA</h2>
+
+   <!-- <h3>🪙 Monedas conseguidas</h3> 
+
+    <h1 id="totalMonedas">30</h1>-->
+
+    <p>
+
+        Has completado el Nivel 2.
+
+        <br><br>
+
+        Exploraste todos los libros y limpiaste completamente el laberinto de Pac-Man.
+
+        <br><br>
+
+        ¡Ya puedes continuar al Nivel 3!
+
+    </p>
+
+    <button onclick="continuarNivel3()">
+
+        Continuar
+
+    </button>
+
+</div>
+
+</div>
+
+
+<div id="mensajeMonedas">
+    +10 🪙
+</div>
+
+<div id="contadorMovil">
+    🪙 <span id="monedasMovil">30</span>
+</div>
+<div class="creditos">
+    © 2026 Josue E. Rodríguez
+</div>
+
+
+<script src="pacman.js"></script>
+
+</body>
+
+</html>

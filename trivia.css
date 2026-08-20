@@ -1,0 +1,604 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+
+    background:#0d1b2a;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    height:100vh;
+
+    margin:0;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    overscroll-behavior:none;
+
+    touch-action:manipulation;
+
+}
+
+body{
+font-family:"Nunito",sans-serif;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.contenedor{
+
+    width:95%;
+
+    max-width:430px;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    padding-top:10px;
+
+}
+
+.tarjeta{
+
+    width:100%;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+h1{
+
+    text-align:center;
+
+    color:#1976d2;
+
+    font-size:40px;
+
+    font-weight:800;
+    
+    margin-bottom:5px;
+
+}
+
+h2{
+
+    text-align:center;
+
+    color:#666;
+
+     font-size:26px;
+
+    font-weight:700;
+
+    margin-bottom:5px;
+}
+
+#contadorPregunta{
+
+    margin:10px 0 15px 0;
+
+    text-align:center;
+
+    font-size:22px;
+
+    color:#000000;
+
+    font-weight:900;
+
+}
+
+#pregunta{
+
+    background:#f5f7ff;
+
+    border:3px solid #1d4ed8;
+
+    border-radius:20px;
+
+    padding:22px;
+
+    margin:18px 0;
+
+    min-height:75px;   /* antes 75px */
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.opcion{
+
+    width:100%;
+
+    margin:10px 0;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#ececec;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.opcion:hover{
+
+    background:#d6ecff;
+
+}
+
+.correcta{
+
+    background:#4caf50 !important;
+
+    color:white;
+
+}
+
+.incorrecta{
+
+    background:#e53935 !important;
+
+    color:white;
+
+}
+
+#btnResponder{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#1976d2;
+
+    color:white;
+
+    font-size:22px;
+
+}
+
+.card{
+
+     width:90%;
+
+    max-width:420px;
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:18px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.30);
+
+    overflow:hidden;
+
+    height:95vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.respuesta{
+
+    width:100%;
+
+    margin-top:10px;
+
+    padding:15px 18px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#2f56d6;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.20);
+
+    transition:.25s;
+
+    font-family:"Nunito",sans-serif;
+
+    cursor:pointer;
+
+transition:.25s;
+
+font-family:"Nunito",sans-serif;
+
+
+}
+
+.respuesta:hover{
+
+    transform:scale(1.03);
+
+    background:#4169e1;
+
+}
+
+.respuesta:active{
+
+    transform:scale(.97);
+
+}
+
+#modalLibro{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.8);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+#ventanaLibro{
+
+    width:90%;
+
+    height:90%;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+#iframeLibro{
+
+    flex:1;
+
+    border:none;
+
+}
+
+#ventanaLibro button{
+
+    padding:15px;
+
+    border:none;
+
+    background:#1976d2;
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+.respuesta:last-of-type{
+
+    margin-bottom:25px;
+
+}
+
+#progreso{
+
+    margin-top:auto;
+
+    padding-top:12px;
+
+    font-size:24px;
+
+    letter-spacing:6px;
+
+}
+
+.correcta{
+
+    background:#4caf50 !important;
+
+    color:white;
+
+}
+
+.incorrecta{
+
+    background:#e53935 !important;
+
+    color:white;
+
+}
+
+.modalIncorrecto{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.6);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.ventanaIncorrecto{
+
+    width:85%;
+
+    max-width:350px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+.ventanaIncorrecto h2{
+
+    color:#e53935;
+
+}
+
+.ventanaIncorrecto p{
+
+    margin:20px 0;
+
+    font-size:20px;
+
+}
+
+.ventanaIncorrecto button{
+
+    padding:12px 35px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#1976d2;
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+.medallaModal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+.medallaBox{
+
+    width:90%;
+
+    max-width:500px;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:18px;
+
+    text-align:center;
+
+    animation:aparece .5s ease;
+
+}
+
+.medallaIcono{
+
+    font-size:80px;
+
+    margin:10px 0;
+
+}
+
+.medallaBox h1{
+
+    color:#f4b400;
+
+    margin-bottom:10px;
+
+    font-size:30px;
+
+}
+
+.medallaBox h2{
+
+    color:#555;
+
+    margin-bottom:20px;
+
+    font-size:24px;
+
+}
+
+.medallaBox p{
+
+    font-size:18px;
+
+    line-height:1.4;
+
+    color:#555;
+
+}
+
+.medallaBox button{
+
+    margin-top:25px;
+
+    padding:15px 45px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#1976d2;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+}
+
+@keyframes aparece{
+
+    from{
+
+        transform:scale(.5);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+
+
+.pregunta{
+
+    background:#f5f7ff;
+
+    border:3px solid #1d4ed8;
+
+    border-radius:20px;
+
+    padding:15px;
+
+    margin:18px 0;
+
+    min-height:75px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    line-height:1.4;
+
+    margin-top:10px;
+
+    word-break:break-word;
+
+}
+
+/* =========================================
+   CRÉDITO DEL DESARROLLADOR
+========================================= */
+
+.creditos {
+    position: fixed;
+    bottom: 8px;
+    right: 10px;
+
+    font-size: 10px;
+    color: white;
+
+    opacity: 0.35;
+
+    z-index: 9999;
+
+    pointer-events: none;
+}
