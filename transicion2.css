@@ -6,21 +6,25 @@
 
 }
 
-body{
+body{ 
 
-    background:#0d1b2a;
+    background-image: url("img/transicionmex.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-color: #f8f0df;
 
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif; 
 
-    display:flex;
+    display:flex; 
 
-    justify-content:center;
+    justify-content:center; 
 
-    align-items:center;
+    align-items:center; 
 
-    min-height:100vh;
+    min-height:100vh; 
 
-    color:white;
+    color:white; 
 
 }
 
@@ -194,14 +198,48 @@ button:hover{
 
 }
 
+.barra{
+
+    width:100%;
+    height:20px;
+
+    background:#eeeeee;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:20px;
+
+}
+
 .progreso{
 
     width:0%;
-
     height:100%;
 
-    background:linear-gradient(90deg,#bfc5ce,#eef1f4,#9aa5b1);
+    background:#006847;
 
     border-radius:20px;
+
+}
+
+.progreso{ 
+
+    width:0%; 
+    height:100%; 
+    background:#006847; 
+    border-radius:20px; 
+
+}
+
+@media (max-width: 768px) {
+
+    body {
+        background-position: center top;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-color: #f8f0df;
+    }
 
 }
