@@ -4,30 +4,41 @@
     box-sizing:border-box;
 }
 
+/* =========================================
+   REGISTRO - PERMITIR SCROLL
+========================================= */
+
 html,
 body{
 
     width:100%;
-    height:100%;
+
+    height:auto;
+
+    min-height:100%;
 
     font-family:"Nunito",sans-serif;
 
     background:#0d1b2a;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
-        overflow:hidden;
+    overflow-y:auto;
 
+    overflow-x:hidden;
+
+    align-items:flex-start;
 
 }
+
+
 
 .contenedor{
 
     width:100%;
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start;
+
+    min-height:100vh;
 
     padding:20px;
 
@@ -404,4 +415,29 @@ button:active{
 
 .opcionSatisfaccion:active {
     transform: scale(0.97);
+}
+
+/* =========================================
+   COLORES DE SATISFACCIÓN SELECCIONADA
+========================================= */
+
+/* 😊 Feliz - Verde */
+.opcionSatisfaccion[data-satisfaccion="Feliz"].seleccionada {
+    background: #d4edda;
+    border-color: #28a745;
+    box-shadow: 0 0 12px rgba(40, 167, 69, 0.35);
+}
+
+/* 😐 Regular - Amarillo */
+.opcionSatisfaccion[data-satisfaccion="Regular"].seleccionada {
+    background: #fff3cd;
+    border-color: #ffc107;
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.35);
+}
+
+/* 😞 Triste - Rojo */
+.opcionSatisfaccion[data-satisfaccion="Triste"].seleccionada {
+    background: #f8d7da;
+    border-color: #dc3545;
+    box-shadow: 0 0 12px rgba(220, 53, 69, 0.35);
 }
