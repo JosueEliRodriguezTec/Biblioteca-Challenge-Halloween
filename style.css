@@ -15,25 +15,34 @@
 }
     
     
-    body {
+   body {
 
-        -webkit-user-select:none;
+    -webkit-user-select: none;
+    user-select: none;
 
-    user-select:none;
+    -webkit-touch-callout: none;
 
-    -webkit-touch-callout:none;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        object-fit: cover;
-        font-family: "Nunito", sans-serif !important;
-        background-image: url("img/fondo.jpg");
-        overflow: hidden;
-touch-action: none;
-    }
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    font-family: "Nunito", sans-serif !important;
+
+    background-image: url("img/fondomexico1.png");
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    touch-action: pan-y;
+
+}
 @media (max-width:992px) {
     .board{
         width: 100% !important;
@@ -45,7 +54,10 @@ touch-action: none;
         padding: 30px 10px;
         width: fit-content;
         border-radius: 20px;
-        background-color: rgba(247, 224, 245, 0.532);
+        background-image: url("img/fondomexico.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
         gap: 5px;
         display: grid;
         /* border: 2px solid red; */
@@ -56,23 +68,22 @@ touch-action: none;
     }
 
     .box {
-        /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; */
-        /* border: 1px solid white; */
-        z-index: 1;
-        height: 60px;
-        width: 80px;
-        background-size: cover;
-        object-fit: cover;
-        cursor: crosshair;
-        width: 50px;
-        -webkit-user-drag:none;
+    z-index: 1;
 
-    user-select:none;
+    width: 50px;
+    height: 50px;
 
-    -webkit-user-select:none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
-    -webkit-touch-callout:none;
-    }
+    cursor: crosshair;
+
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
 
     .flow {
         z-index: 1;
@@ -96,7 +107,7 @@ touch-action: none;
         background-size: cover;
         object-fit: cover;
         background-position: center;
-        background-image: url("img/Portada.png");
+        background-image: url("img/Portada Mexico.png");
         background-color: rgb(94, 46, 236);
         z-index: 3;
 
@@ -779,7 +790,7 @@ body{
 
     user-select:none;
 
-    touch-action:none;
+    touch-action:pan-y;
 
 }
 
@@ -1118,4 +1129,37 @@ body{
     z-index: 9999;
 
     pointer-events: none;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        background-position: center top;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-color: white;
+    }
+
+}
+
+/* =========================================
+   NIVEL 1 - SIN SCROLL
+   Sobrescribe el comportamiento de libros.html
+========================================= */
+
+html.nivel1,
+body.nivel1 {
+
+    overflow: hidden !important;
+
+    touch-action: none !important;
+
+}
+
+/* =========================================
+   NIVEL 1 - BAJAR TABLERO
+========================================= */
+
+html.nivel1 #board {
+    transform: translateY(140px);
 }
