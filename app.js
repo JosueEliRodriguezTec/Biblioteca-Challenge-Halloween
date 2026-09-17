@@ -58,12 +58,12 @@ var scr;
 const PUNTOS_META = 300;
 var rand;
 const imagenes = [
-    "Sonido.png",
-    "Libro-verde.png",
-    "Visor.png",
-    "Silencio.png",
-    "Separador.png",
-    "Alimentos.png"
+    "bandera.png",
+    "aguila.png",
+    "campana.png",
+    "banderin.png",
+    "nopal.png",
+    "sombrero.png"
 ];
 
 
@@ -342,7 +342,7 @@ function selectBox(e) {
 
     if (!firstBox) {
         firstBox = box;
-        box.style.outline = "3px solid white"; // solo visual
+        box.style.outline = "3px solid #006847"; // solo visual
         return;
     }
 
@@ -362,6 +362,8 @@ firstBox = null;
      
     
 function irLibros() {
+
+    sessionStorage.setItem("challengeIniciado", "true");
 
     window.location.href = "libros.html";
 
@@ -401,7 +403,31 @@ const btnIniciarJuego =
    USUARIO ABRE LIBBY EN NUEVA PESTAÑA
 ========================================= */
 
+const librosLogin = [
+
+    "https://elibro.net/es/ereader/consorcioitesm/129013",
+
+    "https://elibro.net/es/ereader/consorcioitesm/193713",
+
+    "https://elibro.net/es/ereader/consorcioitesm/74755",
+
+    "http://elibro.net/es/ereader/consorcioitesm/194942",
+
+    "https://elibro.net/es/ereader/consorcioitesm/279448"
+
+];
+
+
 btnLoginElibro.addEventListener("click", function () {
+
+    const indiceAleatorio =
+        Math.floor(Math.random() * librosLogin.length);
+
+    const libroAleatorio =
+        librosLogin[indiceAleatorio];
+
+    // Asignar la liga seleccionada al botón
+    btnLoginElibro.href = libroAleatorio;
 
     // Mostrar botón para continuar
     btnLoginElibro.style.display = "none";
@@ -409,7 +435,6 @@ btnLoginElibro.addEventListener("click", function () {
     btnContinuarLogin.style.display = "block";
 
 });
-
 
 /* =========================================
    USUARIO REGRESA DESPUÉS DEL LOGIN
@@ -441,7 +466,7 @@ btnContinuarLogin.addEventListener("click", function () {
 });
 
 function terminarNivel() {
-
+    sessionStorage.setItem("nivel1Completado", "true");
     jugador.monedas = 15;
 
     document.getElementById("coins").innerHTML =
