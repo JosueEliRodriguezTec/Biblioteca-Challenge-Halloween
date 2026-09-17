@@ -1,91 +1,137 @@
+// =========================================
+// PROTECCIÓN DE ACCESO AL CHALLENGE
+// =========================================
+
+const autorizado =
+    sessionStorage.getItem("challengeIniciado");
+
+if(autorizado !== "true"){
+
+    window.location.href =
+        "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Septiembre/index.html";
+
+}
+
 const preguntas = [
 
     {
-        pregunta: "¿Cuál es el horario de la Biblioteca?",
+        pregunta: "¿Cuáles son los colores de la bandera de México?",
 
         opciones: [
-            "7:30 a.m. a 7:00 p.m.",
-            "8:00 a.m. a 8:00 p.m.",
-            "7:00 a.m. a 6:00 p.m.",
-            "9:00 a.m. a 5:00 p.m."
+            "Verde, blanco y rojo",
+            "Azul, blanco y rojo",
+            "Verde, amarillo y rojo",
+            "Rojo, blanco y azul"
         ],
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/5305833"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/4838661"
     },
 
     {
-        pregunta: "¿En qué campus se encuentra esta Biblioteca?",
+        pregunta: "¿Qué animal aparece en el escudo de la bandera de México?",
 
         opciones: [
-            "Garza Lagüera",
-            "Valle Alto",
-            "Garza Sada",
-            "Cumbres"
+            "Un águila",
+            "Un jaguar",
+            "Un cóndor",
+            "Un quetzal"
         ],
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/3466096"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/9251106"
     },
 
     {
-        pregunta: "¿Quiénes son colaboradores de la Biblioteca?",
+        pregunta: "¿Qué sostiene el águila en su pico?",
 
         opciones: [
-            "Adriana",
-            "Alejandra",
-            "Josue",
-            "Todos los anteriores"
+            "Una serpiente",
+            "Una rama",
+            "Una flor",
+            "Un pez"
         ],
 
-        correcta: 3,
+        correcta: 0,
+
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-arte%20mexicana/page-1/6451593"
+    },
+
+    {
+        pregunta: "¿Sobre qué planta está posada el águila del escudo?",
+
+        opciones: [
+            "Un nopal",
+            "Un maguey",
+            "Un árbol",
+            "Una palma"
+        ],
+
+        correcta: 0,
+
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-arte%20mexicana/page-1/6197619"
+    },
+
+    {
+        pregunta: "¿Qué día se celebra la Independencia de México?",
+
+        opciones: [
+            "16 de septiembre",
+            "5 de mayo",
+            "20 de noviembre",
+            "15 de septiembre"
+        ],
+
+        correcta: 0,
+
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexicanos/page-1/7616447"
+    },
+
+    {
+        pregunta: "¿En qué año inició la Independencia de México?",
+
+        opciones: [
+            "1810",
+            "1821",
+            "1910",
+            "1800"
+        ],
+
+        correcta: 0,
+
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexicanos/page-1/4768361"
+    },
+
+    {
+        pregunta: "¿Quién dio el famoso Grito de Dolores?",
+
+        opciones: [
+            "Miguel Hidalgo",
+            "Benito Juárez",
+            "José María Morelos",
+            "Emiliano Zapata"
+        ],
+
+        correcta: 0,
 
         libro: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/5485309"
     },
 
     {
-        pregunta: "¿Qué servicios ofrece la Biblioteca?",
+        pregunta: "¿En qué lugar se dio el llamado Grito de Dolores?",
 
         opciones: [
-            "Referencias",
-            "Libros físicos",
-            "Zona VR",
-            "Todos los anteriores"
+            "Dolores, Guanajuato",
+            "Ciudad de México",
+            "Puebla, Puebla",
+            "Monterrey, Nuevo León"
         ],
 
-        correcta: 3,
+        correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/5807900"
-    },
-
-    {
-        pregunta: "¿Está permitido consumir alimentos dentro de la Biblioteca?",
-
-        opciones: [
-            "Verdadero",
-            "Falso"
-        ],
-
-        correcta: 1,
-
-        libro: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/5305833"
-    },
-
-    {
-        pregunta: "¿En qué área de la Biblioteca puedes realizar actividades inmersivas?",
-
-        opciones: [
-            "Sala de estudio en silencio",
-            "Zona VR",
-            "Auditorio",
-            "Módulo de préstamo"
-        ],
-
-        correcta: 1,
-
-        libro: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/3466096"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexicanos/page-1/5224628"
     }
 
 ];
@@ -93,7 +139,7 @@ const preguntas = [
 // Mezclar las preguntas
 let preguntasJuego = [...preguntas]
 .sort(() => Math.random() - 0.5)
-.slice(0,4);
+.slice(0,5);
 
 let preguntaActual = 0;
 
@@ -131,7 +177,7 @@ function mostrarPregunta(){
     mezclarOpciones(p);
 
     lblNumero.innerHTML =
-        "Pregunta " + (preguntaActual+1) + " de 4";
+        "Pregunta " + (preguntaActual+1) + " de 5";
 
     lblPregunta.innerHTML = p.pregunta;
 
