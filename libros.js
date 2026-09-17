@@ -1,4 +1,18 @@
-    let jugador = JSON.parse(localStorage.getItem("jugador"));
+// =========================================
+// PROTECCIÓN DE ACCESO AL CHALLENGE
+// =========================================
+
+const autorizado =
+    sessionStorage.getItem("challengeIniciado");
+
+if(autorizado !== "true"){
+
+    window.location.href =
+        "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Septiembre/index.html";
+
+}
+
+let jugador = JSON.parse(localStorage.getItem("jugador"));
 
     if(!jugador){
 
@@ -39,7 +53,7 @@
     libroPendiente = "libro1";
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/570224",
+        "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/2893509",
         "_blank"
     );
 
@@ -51,7 +65,7 @@ function libro2(){
     libroPendiente = "libro2";
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/1330376",
+        "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/9448689",
         "_blank"
     );
 
@@ -64,7 +78,7 @@ function libro3(){
     libroPendiente = "libro3";
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/37561",
+        "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/4983113",
         "_blank"
     );
 
