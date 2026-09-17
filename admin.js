@@ -100,6 +100,10 @@ consulta.forEach((doc)=>{
 
                 <td>${formatearFecha(datos.fecha)}</td>
 
+                <td>${datos.temporada || "-"}</td>
+
+                
+
             `;
 
             tabla.appendChild(fila);
@@ -324,6 +328,9 @@ async function exportarExcel(){
                     "Satisfacción":
         participante.satisfaccion || "-",
 
+                "Temporada":
+    participante.temporada || "-",
+
                 "Fecha de registro":
                     fecha
 
@@ -459,6 +466,8 @@ buscar.addEventListener("input", function(){
             <td>${datos.semestre}°</td>
 
             <td>${formatearSatisfaccion(datos.satisfaccion)}</td>
+
+             <td>${datos.temporada || "-"}</td>
 
             <td>${formatearFecha(datos.fecha)}</td>
 
