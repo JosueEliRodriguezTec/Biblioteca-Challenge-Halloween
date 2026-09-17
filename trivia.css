@@ -7,7 +7,12 @@
 html,
 body{
 
-    background:#0d1b2a;
+    
+    background-image:url("img/trivia-mexico.png");
+    background-size:cover;
+    background-position:center top;
+    background-repeat:no-repeat;
+    background-color:#f8f0df;
 
     display:flex;
 
