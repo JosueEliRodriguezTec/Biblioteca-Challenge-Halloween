@@ -1,47 +1,177 @@
-// Importar Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+<!DOCTYPE html>
+<!--
+    Biblioteca Challenge
+    © 2026 Josue Rodríguez
+    Creación, diseño y desarrollo: Josue Rodríguez
+-->
+<html lang="en" class="nivel1">
 
-import {
-    getFirestore
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no,
+viewport-fit=cover">
 
-import {
-    getAuth
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+<title>Biblio Crush</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-// Configuración de tu proyecto
-const firebaseConfig = {
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 
-    apiKey: "AIzaSyD1k7JIayPXNQ6yVb3gSjy4vAvmeIXmrBs",
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-    authDomain: "biblioteca-challenge.firebaseapp.com",
+<link rel="stylesheet" href="style.css">
 
-    projectId: "biblioteca-challenge",
+</head>
 
-    storageBucket: "biblioteca-challenge.firebasestorage.app",
+<body class="nivel1" oncontextmenu="return false;">
 
-    messagingSenderId: "453337835857",
-
-    appId: "1:453337835857:web:341a2f5885b35e698c4b70"
-
-};
-
-
-// Inicializar Firebase
-const app = initializeApp(firebaseConfig);
-
-
-// Inicializar Firestore
-const db = getFirestore(app);
+<div class="h">
 
 
-// Inicializar Authentication
-const auth = getAuth(app);
+<h5>⭐ Puntos: <span id="score">0</span> / 300</h5>
+
+<h5>🪙 Monedas: <span id="coins">0</span></h5>
+
+</div>
+
+<div class="h0">
+
+<h5 title="Recargar">
+<i class="fa-solid fa-rotate-right" id="rel"></i>
+</h5>
+
+<h5>
+<i class="fas fa-volume-mute" id="mut"></i>
+</h5>
+
+</div>
 
 
-// Exportar
-export {
-    db,
-    auth
-};
+<audio loop id="aud">
+<source src="img/candy_crush_loop1.mp3">
+</audio>
+
+<audio loop id="aud1">
+<source src="img/candycrushcombo4.mp3">
+</audio>
+
+<div class="board" id="board"></div>
+
+<div class="board board1" id="board1">
+
+<div id="inicio">
+
+    
+  <a
+    id="btnLoginElibro"
+    class="loginBtn"
+    href="#"
+    target="_blank"
+    rel="noopener">
+
+    🔐 Iniciar sesión con Tec
+
+</a>
+
+    <button
+        id="btnContinuarLogin"
+        class="loginBtn"
+        style="display:none;">
+
+        ✅ Ya inicié sesión — Continuar
+
+    </button>
+
+    <button
+        onclick="ply()"
+        id="btnIniciarJuego"
+        class="str"
+        disabled>
+
+        🔒 Iniciar Juego
+
+    </button>
+
+</div>
+
+    <div id="introModal" class="introModal">
+
+        <div class="introBox">
+
+            <h1>🎮 Nivel 1</h1>
+
+            <h2>🪙 Recompensa</h2>
+
+            <h1 class="coins">15 Monedas</h1>
+
+            <p>
+                ¡Obtén 300 puntos para avanzar de nivel!
+            </p>
+
+            <button onclick="startGame()">
+                JUGAR
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="final" class="finalScreen">
+
+        <div class="resultBox">
+
+    <h1>🎉 ¡Nivel 1 completado!</h1>
+
+    <p class="subtitulo">Puntuación obtenida</p>
+
+    <h1 id="finalScore">0</h1>
+
+    <hr>
+
+    <h2>🪙 Has obtenido</h2>
+
+    <h1 class="coinsReward">15 Monedas</h1>
+    
+
+    <p class="avance">
+        Progreso: <strong>15 / 30 Monedas</strong>
+    </p>
+
+    <p class="mensajeBronce">
+        Te faltan <strong>15 monedas</strong> para desbloquear la
+        <strong>🥉 Medalla de Bronce</strong>.
+    </p>
+
+    <button id="btnLibros" onclick="irLibros()">
+        📚 Explorar Libros
+    </button>
+    <div id="coinAnimation" class="coinAnimation">
+    🪙 +15
+</div>
+
+</div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<div class="creditos">
+    © 2026 Josue E. Rodríguez
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+
+
+
+</html>
