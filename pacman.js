@@ -16,6 +16,20 @@ document.addEventListener("gestureend", function(e){
 
 });*/
 
+// =========================================
+// PROTECCIÓN DE ACCESO AL CHALLENGE
+// =========================================
+
+const autorizado =
+    sessionStorage.getItem("challengeIniciado");
+
+if(autorizado !== "true"){
+
+    window.location.href =
+        "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Septiembre/index.html";
+
+}
+
 let monedas = 30;
 let vidas = 3;
 let tiempo = 60;
@@ -134,12 +148,15 @@ function verificarVictoria(){
     mostrarVictoria();
 
 }
+function mostrarVictoria(){
 
-   function mostrarVictoria(){
+    // Marcar que el Nivel 2 fue completado
+    sessionStorage.setItem("nivel2Completado", "true");
 
     document.getElementById("medallaPlata").style.display = "flex";
 
     document.getElementById("totalMonedas").textContent = monedas;
+
     confetti({
 
         particleCount:250,
@@ -157,22 +174,22 @@ function verificarVictoria(){
 let libros = [
     {
         id: 1,
-        url: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/5305833",
+        url: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/2893128",
         leido: false
     },
     {
         id: 2,
-        url: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/3466096",
+        url: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/2883336",
         leido: false
     },
     {
         id: 3,
-        url: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/5485309",
+        url: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/8764389",
         leido: false
     },
     {
         id: 4,
-        url: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/5807900",
+        url: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/508405",
         leido: false
     }
 ];
@@ -284,7 +301,7 @@ setInterval(()=>{
 
     moverPacman(movimientoY,movimientoX);
 
-},120);
+},132);
 
 document.addEventListener("keydown", function(e){
 
@@ -392,10 +409,24 @@ if(valor === 3){
 
     mostrarMonedas();
 
-    abrirLibro(libros[0].url);
+    const librosDisponibles =
+        libros.filter(libro => !libro.leido);
+
+    if(librosDisponibles.length > 0){
+
+        const indiceAleatorio =
+            Math.floor(Math.random() * librosDisponibles.length);
+
+        const libroAleatorio =
+            librosDisponibles[indiceAleatorio];
+
+        libroAleatorio.leido = true;
+
+        abrirLibro(libroAleatorio.url);
+
+    }
 
 }
-
     // borrar posición anterior
     mapa[pacmanFila][pacmanColumna] = 0;
 
@@ -456,6 +487,10 @@ document.addEventListener("touchend", function(e){
     ultimoToque = ahora;
 
 }, { passive:false });
+
+// =========================================
+// PROTECCIÓN DEL BOTÓN ATRÁS
+// =========================================
 
 // =========================================
 // PRUEBA DEL BOTÓN ATRÁS
