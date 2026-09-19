@@ -35,7 +35,7 @@
 
     font-family: "Nunito", sans-serif !important;
 
-    background-image: url("img/fondomexico1.png");
+    background-image: url("img/fondohallowen1.png");
 
     overflow-y: auto;
     overflow-x: hidden;
@@ -54,7 +54,7 @@
         padding: 30px 10px;
         width: fit-content;
         border-radius: 20px;
-        background-image: url("img/fondomexico.png");
+        background-image: url("img/fondohallowen.png");
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
