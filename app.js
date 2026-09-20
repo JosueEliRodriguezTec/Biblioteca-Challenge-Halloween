@@ -58,8 +58,8 @@ var scr;
 const PUNTOS_META = 300;
 var rand;
 const imagenes = [
-    "bandera.png",
-    "aguila.png",
+    "calabaza.png",
+    "caramelo.png",
     "campana.png",
     "banderin.png",
     "nopal.png",
