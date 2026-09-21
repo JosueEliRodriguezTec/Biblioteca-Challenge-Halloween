@@ -60,10 +60,10 @@ var rand;
 const imagenes = [
     "Calabaza.png",
     "caramelo.png",
-    "campana.png",
-    "banderin.png",
-    "nopal.png",
-    "sombrero.png"
+    "caldera.png",
+    "cuervo.png",
+    "dulce.png",
+    "sombrerobruja.png"
 ];
 
 
