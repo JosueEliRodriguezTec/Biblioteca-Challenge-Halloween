@@ -321,7 +321,7 @@ else{
 // Fantasma decorativo encima de cualquier casilla
 if(esFantasmaDecorativo){
 
-    casilla.classList.add("fantasma");
+    casilla.className = "casilla fantasma";
 
 }
 
