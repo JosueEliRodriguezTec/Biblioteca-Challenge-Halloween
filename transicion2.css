@@ -22,7 +22,7 @@ body{
 
     align-items:center; 
 
-    min-height:100vh; 
+    min-height:100dvh; 
 
     color:white; 
 
@@ -236,10 +236,10 @@ button:hover{
 @media (max-width: 768px) {
 
     body {
-        background-position: center top;
-        background-size: 100% auto;
+        background-position: center center;
+        background-size: cover;
         background-repeat: no-repeat;
-        background-color: #f8f0df;
+        background-color: black;
     }
 
 }
