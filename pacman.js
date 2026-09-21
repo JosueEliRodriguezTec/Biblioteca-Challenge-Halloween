@@ -86,8 +86,8 @@ let fantasmaRuta = [
 ];
 let fantasmaPaso = 0;
 
-let fantasmaFila = 1;
-let fantasmaColumna = 1;
+let fantasmaFila = 0;
+let fantasmaColumna = 0;
 
 function abrirLibro(urlLibro){
 
@@ -321,7 +321,7 @@ else{
 // Fantasma decorativo encima de cualquier casilla
 if(esFantasmaDecorativo){
 
-    casilla.className = "casilla fantasma";
+    casilla.classList.add("fantasma");
 
 }
 
