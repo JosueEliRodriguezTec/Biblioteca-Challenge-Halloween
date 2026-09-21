@@ -53,7 +53,7 @@ let jugador = JSON.parse(localStorage.getItem("jugador"));
     libroPendiente = "libro1";
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/2893509",
+        "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/3315911",
         "_blank"
     );
 
@@ -65,7 +65,7 @@ function libro2(){
     libroPendiente = "libro2";
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/9448689",
+        "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/2055685",
         "_blank"
     );
 
@@ -78,7 +78,7 @@ function libro3(){
     libroPendiente = "libro3";
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/4983113",
+        "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/5178480",
         "_blank"
     );
 
