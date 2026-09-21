@@ -174,22 +174,22 @@ function mostrarVictoria(){
 let libros = [
     {
         id: 1,
-        url: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/2893128",
+        url: "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/7616602",
         leido: false
     },
     {
         id: 2,
-        url: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/2883336",
+        url: "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/8804577",
         leido: false
     },
     {
         id: 3,
-        url: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/8764389",
+        url: "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/5054249",
         leido: false
     },
     {
         id: 4,
-        url: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/508405",
+        url: "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/10480455",
         leido: false
     }
 ];
