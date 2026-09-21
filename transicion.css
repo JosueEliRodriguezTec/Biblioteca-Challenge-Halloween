@@ -13,7 +13,7 @@ body{
 
     align-items:center;
 
-    height:100vh;
+    height:100dvh;
 
 }
 
@@ -96,10 +96,10 @@ h2{
 @media (max-width: 768px) {
 
     body {
-        background-position: center top;
-        background-size: 100% auto;
+        background-position: center center;
+        background-size: cover;
         background-repeat: no-repeat;
-        background-color: #f8f0df;
+        background-color: black;
     }
 
 }
