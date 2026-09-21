@@ -15,13 +15,13 @@ if(autorizado !== "true"){
 const preguntas = [
 
     {
-        pregunta: "¿Cuáles son los colores de la bandera de México?",
+        pregunta: "¿Cuándo se celebra Halloween?",
 
         opciones: [
-            "Verde, blanco y rojo",
-            "Azul, blanco y rojo",
-            "Verde, amarillo y rojo",
-            "Rojo, blanco y azul"
+            "31 de octubre",
+            "14 de febrero",
+            "25 de diciembre",
+            "1 de enero"
         ],
 
         correcta: 0,
@@ -30,13 +30,13 @@ const preguntas = [
     },
 
     {
-        pregunta: "¿Qué animal aparece en el escudo de la bandera de México?",
+        pregunta: "¿Qué fruta es uno de los símbolos más representativos de Halloween?",
 
         opciones: [
-            "Un águila",
-            "Un jaguar",
-            "Un cóndor",
-            "Un quetzal"
+            "La calabaza",
+            "La manzana",
+            "La fresa",
+            "La sandía"
         ],
 
         correcta: 0,
@@ -45,13 +45,13 @@ const preguntas = [
     },
 
     {
-        pregunta: "¿Qué sostiene el águila en su pico?",
+        pregunta: "¿Qué animal se relaciona tradicionalmente con Halloween?",
 
         opciones: [
-            "Una serpiente",
-            "Una rama",
-            "Una flor",
-            "Un pez"
+            "El gato negro",
+            "El delfín",
+            "El caballo",
+            "El conejo"
         ],
 
         correcta: 0,
@@ -60,13 +60,13 @@ const preguntas = [
     },
 
     {
-        pregunta: "¿Sobre qué planta está posada el águila del escudo?",
+        pregunta: "¿Qué criatura aparece frecuentemente en las historias y decoraciones de Halloween?",
 
         opciones: [
-            "Un nopal",
-            "Un maguey",
-            "Un árbol",
-            "Una palma"
+            "El fantasma",
+            "El unicornio",
+            "El dinosaurio",
+            "El astronauta"
         ],
 
         correcta: 0,
@@ -75,13 +75,13 @@ const preguntas = [
     },
 
     {
-        pregunta: "¿Qué día se celebra la Independencia de México?",
+        pregunta: "¿Qué personaje se representa tradicionalmente como un ser que se transforma durante la luna llena?",
 
         opciones: [
-            "16 de septiembre",
-            "5 de mayo",
-            "20 de noviembre",
-            "15 de septiembre"
+            "El hombre lobo",
+            "El pirata",
+            "El astronauta",
+            "El caballero"
         ],
 
         correcta: 0,
@@ -90,13 +90,13 @@ const preguntas = [
     },
 
     {
-        pregunta: "¿En qué año inició la Independencia de México?",
+        pregunta: "¿Qué objeto se utiliza tradicionalmente para iluminar una calabaza de Halloween?",
 
         opciones: [
-            "1810",
-            "1821",
-            "1910",
-            "1800"
+            "Una vela",
+            "Una regla",
+            "Un lápiz",
+            "Una campana"
         ],
 
         correcta: 0,
@@ -105,13 +105,13 @@ const preguntas = [
     },
 
     {
-        pregunta: "¿Quién dio el famoso Grito de Dolores?",
+        pregunta: "¿Qué colores se relacionan tradicionalmente con Halloween?",
 
         opciones: [
-            "Miguel Hidalgo",
-            "Benito Juárez",
-            "José María Morelos",
-            "Emiliano Zapata"
+            "Naranja y negro",
+            "Azul y rosa",
+            "Verde y blanco",
+            "Rojo y amarillo"
         ],
 
         correcta: 0,
@@ -120,13 +120,13 @@ const preguntas = [
     },
 
     {
-        pregunta: "¿En qué lugar se dio el llamado Grito de Dolores?",
+        pregunta: "¿Qué dicen tradicionalmente los niños cuando van de casa en casa durante Halloween?",
 
         opciones: [
-            "Dolores, Guanajuato",
-            "Ciudad de México",
-            "Puebla, Puebla",
-            "Monterrey, Nuevo León"
+            "¡Dulce o truco!",
+            "¡Feliz cumpleaños!",
+            "¡Buenos días!",
+            "¡Viva México!"
         ],
 
         correcta: 0,
