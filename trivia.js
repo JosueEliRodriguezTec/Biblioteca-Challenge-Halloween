@@ -26,7 +26,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/4838661"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-cuentos%20de%20terror/page-1/10024629"
     },
 
     {
@@ -41,7 +41,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexico/page-1/9251106"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-cuentos%20de%20terror/page-1/10535018"
     },
 
     {
@@ -56,7 +56,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-arte%20mexicana/page-1/6451593"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/12478887"
     },
 
     {
@@ -71,7 +71,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-arte%20mexicana/page-1/6197619"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/4715412"
     },
 
     {
@@ -86,7 +86,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexicanos/page-1/7616447"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/9427619"
     },
 
     {
@@ -101,7 +101,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexicanos/page-1/4768361"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/6201479"
     },
 
     {
@@ -116,7 +116,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/spotlight-books/page-1/5485309"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/3941420"
     },
 
     {
@@ -131,7 +131,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-mexicanos/page-1/5224628"
+        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/2583028"
     }
 
 ];
