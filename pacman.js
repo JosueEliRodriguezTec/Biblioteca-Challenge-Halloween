@@ -63,6 +63,57 @@ let pacmanColumna = 7;
 let movimientoX = 0;
 let movimientoY = 0;
 
+// =====================
+// FANTASMA DECORATIVO
+// =====================
+
+let fantasmaRuta = [
+
+    [1,2],
+    [1,3],
+    [1,4],
+    [1,5],
+    [1,6],
+    [1,7],
+    [1,8],
+    [1,9],
+    [1,10],
+    [1,11],
+    [1,12],
+
+    [2,13],
+    [3,13],
+    [4,13],
+    [5,13],
+    [6,13],
+    [7,13],
+
+    [8,12],
+    [8,11],
+    [8,10],
+    [8,9],
+    [8,8],
+    [8,7],
+    [8,6],
+    [8,5],
+    [8,4],
+    [8,3],
+    [8,2],
+
+    [7,1],
+    [6,1],
+    [5,1],
+    [4,1],
+    [3,1],
+    [2,1]
+
+];
+
+let fantasmaPaso = 0;
+
+let fantasmaFila = 1;
+let fantasmaColumna = 1;
+
 function abrirLibro(urlLibro){
 
     juegoPausado = true;
@@ -219,6 +270,21 @@ const mapa = [
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 
 ];
+
+function moverFantasmaDecorativo(){
+
+    fantasmaPaso++;
+
+    if(fantasmaPaso >= fantasmaRuta.length){
+        fantasmaPaso = 0;
+    }
+
+    fantasmaFila = fantasmaRuta[fantasmaPaso][0];
+    fantasmaColumna = fantasmaRuta[fantasmaPaso][1];
+
+    dibujarMapa();
+
+}
 function dibujarMapa(){
 
     const laberinto = document.getElementById("laberinto");
@@ -237,6 +303,10 @@ function dibujarMapa(){
         casilla.classList.add("casilla");
 
         const valor = mapa[fila][columna];
+
+        const esFantasmaDecorativo =
+    fila === fantasmaFila &&
+    columna === fantasmaColumna;
 
         if(valor === 1){
 
@@ -262,16 +332,23 @@ function dibujarMapa(){
             casilla.classList.add("fantasma");
 
         }
-        else if(valor===5){
+       else if(valor===5){
 
-            casilla.classList.add("puntito");
+    casilla.classList.add("puntito");
 
-        }
-        else{
+}
+else{
 
-            casilla.classList.add("camino");
+    casilla.classList.add("camino");
 
-        }
+}
+
+// Fantasma decorativo encima de cualquier casilla
+if(esFantasmaDecorativo){
+
+    casilla.classList.add("fantasma");
+
+}
 
         laberinto.appendChild(casilla);
 
@@ -302,6 +379,12 @@ setInterval(()=>{
     moverPacman(movimientoY,movimientoX);
 
 },132);
+
+setInterval(()=>{
+
+    moverFantasmaDecorativo();
+
+},500);
 
 document.addEventListener("keydown", function(e){
 
