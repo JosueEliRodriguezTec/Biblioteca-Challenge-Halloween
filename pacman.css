@@ -199,23 +199,22 @@ h2{
 }
 
 .muro{
-    background:#006847;
-    border:1px solid #004d35;
+    background:#f57c00; /* Naranja calabaza */
+    border:1px solid #b94d00;
     border-radius:4px;
 }
 
-/* Blanco */
+/* Gris oscuro / negro */
 .muro:nth-child(3n){
-    background:#ffffff;
-    border-color:#dddddd;
+    background:#292929;
+    border-color:#171717;
 }
 
-/* Rojo */
+/* Naranja calabaza */
 .muro:nth-child(3n+1){
-    background:#ce1126;
-    border-color:#a80e1e;
+    background:#f57c00;
+    border-color:#b94d00;
 }
-
 .camino{
     background:#050505;
 }
