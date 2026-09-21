@@ -405,15 +405,15 @@ const btnIniciarJuego =
 
 const librosLogin = [
 
-    "https://elibro.net/es/ereader/consorcioitesm/129013",
+    "https://elibro.net/es/ereader/consorcioitesm/190978",
 
-    "https://elibro.net/es/ereader/consorcioitesm/193713",
+    "https://elibro.net/es/ereader/consorcioitesm/293904",
 
-    "https://elibro.net/es/ereader/consorcioitesm/74755",
+    "https://elibro.net/es/ereader/consorcioitesm/289986",
 
-    "http://elibro.net/es/ereader/consorcioitesm/194942",
+    "https://elibro.net/es/ereader/consorcioitesm/271551",
 
-    "https://elibro.net/es/ereader/consorcioitesm/279448"
+    "https://elibro.net/es/ereader/consorcioitesm/245458"
 
 ];
 
