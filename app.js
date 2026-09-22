@@ -55,7 +55,7 @@ function startGame() {
 }
 
 var scr;
-const PUNTOS_META = 300;
+const PUNTOS_META = 350;
 var rand;
 const imagenes = [
     "Calabaza.png",
