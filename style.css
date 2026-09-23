@@ -369,7 +369,7 @@ i{
 
     padding:15px;
 
-    background:rgba(255,255,255,.88);
+    background:rgba(255,255,255,.75);
 
     border-radius:20px;
 
@@ -424,7 +424,7 @@ i{
 
     border-radius:10px;
 
-    background:#ff5b8c;
+    background:#6a1b9a;
 
     color:white;
 
@@ -436,7 +436,7 @@ i{
 
 .libro button:hover{
 
-    background:#e54779;
+    background:#4a148c;
 
 }
 
