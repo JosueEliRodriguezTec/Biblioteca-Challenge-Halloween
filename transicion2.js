@@ -8,7 +8,7 @@ const autorizado =
 if(autorizado !== "true"){
 
     window.location.href =
-        "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Septiembre/index.html";
+        "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Halloween/";
 
 }
 
