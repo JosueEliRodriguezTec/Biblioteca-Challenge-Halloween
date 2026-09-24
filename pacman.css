@@ -206,9 +206,11 @@ h2{
 }
 
 .muro:nth-child(3n){
-    background:#2b2b2b;
-    border-color:#151515;
-    box-shadow:0 0 4px rgba(0,0,0,.8);
+    background:#3a3a3a;
+ 
+border-color:#222;
+ 
+box-shadow:0 0 4px rgba(0,0,0,.5);
 }
 
 .muro:nth-child(3n+1){
