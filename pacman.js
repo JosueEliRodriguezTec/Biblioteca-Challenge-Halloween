@@ -36,7 +36,7 @@ let tiempo = 60;
 
 let juegoPausado = false;
 
-let ventanaLibroPreparada = null;
+
 let libroPendientePacman = null;
 
 // Panel para abrir el libro desde una acción directa del alumno
@@ -166,17 +166,7 @@ let fantasmaColumna = 0;
 
 
 
-function prepararVentanaLibro() {
-    if (ventanaLibroPreparada && !ventanaLibroPreparada.closed) {
-        return;
-    }
 
-    ventanaLibroPreparada = window.open(
-        "about:blank",
-        "bibliotecaEbook",
-        "popup=yes,width=1000,height=750,resizable=yes,scrollbars=yes"
-    );
-}
 
 function controlarCierreLibro(ventanaEbook) {
     juegoPausado = true;
@@ -240,25 +230,19 @@ function abrirLibro(urlLibro) {
     return controlarCierreLibro(ventanaEbook);
 }
 
+
 function intentarAbrirLibroAutomatico(libro) {
-    const ventana = ventanaLibroPreparada;
+    const abierto = abrirLibro(libro.url);
 
-    if (ventana && !ventana.closed) {
-        ventanaLibroPreparada = null;
-
-        ventana.location.href = libro.url;
-
+    if (abierto) {
         libro.leido = true;
         libroPendientePacman = null;
         panelLibroPacman.style.display = "none";
-
-        controlarCierreLibro(ventana);
-        return true;
+    } else {
+        mostrarPanelLibroPacman(libro);
     }
-
-    mostrarPanelLibroPacman(libro);
-    return false;
 }
+
 
 
 
