@@ -41,7 +41,7 @@ function libro1() {
     if (visitados.libro1 || libroPendiente) return;
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/3315911",
+        "https://elibro.net/es/ereader/consorcioitesm/61972?prev=as",
         "libro1"
     );
 }
@@ -50,7 +50,7 @@ function libro2() {
     if (visitados.libro2 || libroPendiente) return;
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/2055685",
+        "https://elibro.net/es/ereader/consorcioitesm/301863?prev=as",
         "libro2"
     );
 }
@@ -59,7 +59,7 @@ function libro3() {
     if (visitados.libro3 || libroPendiente) return;
 
     abrirLibro(
-        "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/5178480",
+        "https://elibro.net/es/ereader/consorcioitesm/272226?prev=as",
         "libro3"
     );
 }
