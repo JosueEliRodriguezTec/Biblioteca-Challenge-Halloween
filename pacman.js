@@ -109,6 +109,33 @@ function mostrarPanelLibroPacman(libro) {
     panelLibroPacman.style.display = "flex";
 }
 
+function intentarAbrirLibroAutomatico(libro) {
+
+    const ventana = window.open(
+        libro.url,
+        "_blank"
+    );
+
+    if (ventana) {
+        libro.leido = true;
+        libroPendientePacman = null;
+
+        juegoPausado = true;
+
+        // El juego permanece pausado mientras
+        // el alumno consulta el libro.
+        panelLibroPacman.style.display = "none";
+
+        return true;
+    }
+
+    // Si el navegador bloquea la apertura,
+    // conservamos el botón que ya funciona.
+    mostrarPanelLibroPacman(libro);
+
+    return false;
+}
+
 
 const modal = document.getElementById("modalLibro");
 const iframe = document.getElementById("iframeLibro");
@@ -616,7 +643,7 @@ if(valor === 3){
         const libroAleatorio =
             librosDisponibles[indiceAleatorio];
 
-        mostrarPanelLibroPacman(libroAleatorio);
+        intentarAbrirLibroAutomatico(libroAleatorio);
     }
 }
 
