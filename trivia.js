@@ -26,7 +26,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-cuentos%20de%20terror/page-1/10024629"
+        libro: "https://elibro.net/es/ereader/consorcioitesm/303798?prev=as"
     },
 
     {
@@ -41,7 +41,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-cuentos%20de%20terror/page-1/10535018"
+        libro: "https://elibro.net/es/ereader/consorcioitesm/59862?prev=as"
     },
 
     {
@@ -71,7 +71,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/4715412"
+        libro: "https://elibro.net/es/ereader/consorcioitesm/67244?prev=as"
     },
 
     {
@@ -86,7 +86,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/9427619"
+        libro: "https://elibro.net/es/ereader/consorcioitesm/211767?prev=as"
     },
 
     {
@@ -101,7 +101,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/6201479"
+        libro: "https://elibro.net/es/ereader/consorcioitesm/189039?prev=as"
     },
 
     {
@@ -116,7 +116,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/3941420"
+        libro: "https://elibro.net/es/ereader/consorcioitesm/272667?prev=as"
     },
 
     {
@@ -131,7 +131,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/2583028"
+        libro: "https://elibro.net/es/ereader/consorcioitesm/175809?prev=as"
     }
 
 ];
