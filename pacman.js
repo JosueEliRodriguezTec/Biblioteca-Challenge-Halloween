@@ -520,7 +520,7 @@ setInterval(()=>{
 
 document.addEventListener("keydown", function(e){
 
-        prepararVentanaLibro();
+        
 
  if(e.key=="ArrowRight"){
 
