@@ -36,7 +36,7 @@ let tiempo = 60;
 
 let juegoPausado = false;
 
-
+let ventanaLibroPreparada = null;
 let libroPendientePacman = null;
 
 // Panel para abrir el libro desde una acción directa del alumno
@@ -109,33 +109,6 @@ function mostrarPanelLibroPacman(libro) {
     panelLibroPacman.style.display = "flex";
 }
 
-function intentarAbrirLibroAutomatico(libro) {
-
-    const ventana = window.open(
-        libro.url,
-        "_blank"
-    );
-
-    if (ventana) {
-        libro.leido = true;
-        libroPendientePacman = null;
-
-        juegoPausado = true;
-
-        // El juego permanece pausado mientras
-        // el alumno consulta el libro.
-        panelLibroPacman.style.display = "none";
-
-        return true;
-    }
-
-    // Si el navegador bloquea la apertura,
-    // conservamos el botón que ya funciona.
-    mostrarPanelLibroPacman(libro);
-
-    return false;
-}
-
 
 const modal = document.getElementById("modalLibro");
 const iframe = document.getElementById("iframeLibro");
@@ -192,81 +165,101 @@ let fantasmaColumna = 0;
 
 
 
-function abrirLibro(urlLibro){
 
+function prepararVentanaLibro() {
+    if (ventanaLibroPreparada && !ventanaLibroPreparada.closed) {
+        return;
+    }
+
+    ventanaLibroPreparada = window.open(
+        "about:blank",
+        "bibliotecaEbook",
+        "popup=yes,width=1000,height=750,resizable=yes,scrollbars=yes"
+    );
+}
+
+function controlarCierreLibro(ventanaEbook) {
     juegoPausado = true;
 
+    let finalizado = false;
+    let temporizadorCierre;
+
+    function cerrarYContinuar() {
+        if (finalizado) return;
+
+        finalizado = true;
+        clearInterval(vigilarVentana);
+        clearTimeout(temporizadorCierre);
+        juegoPausado = false;
+    }
+
+    const vigilarVentana = setInterval(() => {
+        if (ventanaEbook.closed) {
+            cerrarYContinuar();
+        }
+    }, 500);
+
+    temporizadorCierre = setTimeout(() => {
+        if (!ventanaEbook.closed) {
+            ventanaEbook.close();
+        }
+
+        setTimeout(() => {
+            if (ventanaEbook.closed) {
+                cerrarYContinuar();
+            } else {
+                const continuar = confirm(
+                    "Si terminaste de consultar el libro, " +
+                    "presiona Aceptar para continuar con Pac-Man."
+                );
+
+                if (continuar) cerrarYContinuar();
+            }
+        }, 300);
+    }, 5000);
+
+    return true;
+}
+
+function abrirLibro(urlLibro) {
     const ventanaEbook = window.open(
         urlLibro,
         "bibliotecaEbook",
         "popup=yes,width=1000,height=750,resizable=yes,scrollbars=yes"
     );
 
-    // Si el navegador bloquea la ventana, permitir reintentar
     if (!ventanaEbook) {
+        juegoPausado = false;
         alert(
             "No se pudo abrir el libro. " +
             "Permite las ventanas emergentes e inténtalo de nuevo."
         );
-
         return false;
     }
 
-    let finalizado = false;
-    let temporizadorCierre;
+    return controlarCierreLibro(ventanaEbook);
+}
 
-    function cerrarYContinuar(){
+function intentarAbrirLibroAutomatico(libro) {
+    const ventana = ventanaLibroPreparada;
 
-        if (finalizado) return;
+    if (ventana && !ventana.closed) {
+        ventanaLibroPreparada = null;
 
-        finalizado = true;
+        ventana.location.href = libro.url;
 
-        clearInterval(vigilarVentana);
-        clearTimeout(temporizadorCierre);
+        libro.leido = true;
+        libroPendientePacman = null;
+        panelLibroPacman.style.display = "none";
 
-        juegoPausado = false;
+        controlarCierreLibro(ventana);
+        return true;
     }
 
-    // Detectar si el alumno cierra la ventana manualmente
-    const vigilarVentana = setInterval(() => {
-
-        if (ventanaEbook.closed) {
-            cerrarYContinuar();
-        }
-
-    }, 500);
-
-    // Intentar cerrar el libro después de 5 segundos
-    temporizadorCierre = setTimeout(() => {
-
-        if (!ventanaEbook.closed) {
-            ventanaEbook.close();
-        }
-
-        setTimeout(() => {
-
-            if (ventanaEbook.closed) {
-
-                cerrarYContinuar();
-
-            } else {
-
-                const continuar = confirm(
-                    "Si terminaste de consultar el libro, " +
-                    "presiona Aceptar para continuar con Pac-Man."
-                );
-
-                if (continuar) {
-                    cerrarYContinuar();
-                }
-            }
-
-        }, 300);
-
-    }, 5000);
-
-    return true;
+    mostrarPanelLibroPacman(libro);
+    return false;
 }
+
 
 
 function cerrarLibro(){
@@ -527,6 +520,8 @@ setInterval(()=>{
 
 document.addEventListener("keydown", function(e){
 
+        prepararVentanaLibro();
+
  if(e.key=="ArrowRight"){
 
     direccion="derecha";
@@ -559,7 +554,7 @@ if(e.key=="ArrowLeft"){
 // Controles táctiles
 
 document.getElementById("arriba").addEventListener("pointerdown", function(){
-
+ prepararVentanaLibro();
     direccion = "arriba";
     movimientoX = 0;
     movimientoY = -1;
@@ -567,7 +562,7 @@ document.getElementById("arriba").addEventListener("pointerdown", function(){
 });
 
 document.getElementById("abajo").addEventListener("pointerdown", function(){
-
+ prepararVentanaLibro();
     direccion = "abajo";
 
     movimientoX = 0;
@@ -576,7 +571,7 @@ document.getElementById("abajo").addEventListener("pointerdown", function(){
 });
 
 document.getElementById("izquierda").addEventListener("pointerdown", function(){
-
+ prepararVentanaLibro();
     direccion = "izquierda";
 
     movimientoX = -1;
@@ -585,7 +580,7 @@ document.getElementById("izquierda").addEventListener("pointerdown", function(){
 });
 
 document.getElementById("derecha").addEventListener("pointerdown", function(){
-
+ prepararVentanaLibro();
     direccion = "derecha";
 
     movimientoX = 1;
