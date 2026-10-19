@@ -206,7 +206,7 @@ function controlarCierreLibro(ventanaEbook) {
                 if (continuar) cerrarYContinuar();
             }
         }, 300);
-    }, 5000);
+    }, 3500);
 
     return true;
 }
@@ -231,17 +231,11 @@ function abrirLibro(urlLibro) {
 }
 
 
-function intentarAbrirLibroAutomatico(libro) {
-    const abierto = abrirLibro(libro.url);
 
-    if (abierto) {
-        libro.leido = true;
-        libroPendientePacman = null;
-        panelLibroPacman.style.display = "none";
-    } else {
-        mostrarPanelLibroPacman(libro);
-    }
+function intentarAbrirLibroAutomatico(libro) {
+    mostrarPanelLibroPacman(libro);
 }
+
 
 
 
