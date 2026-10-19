@@ -335,22 +335,22 @@ function mostrarVictoria(){
 let libros = [
     {
         id: 1,
-        url: "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/7616602",
+        url: "https://elibro.net/es/ereader/consorcioitesm/35754?fs_q=terror",
         leido: false
     },
     {
         id: 2,
-        url: "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/8804577",
+        url: "https://elibro.net/es/ereader/consorcioitesm/268682?prev=as",
         leido: false
     },
     {
         id: 3,
-        url: "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/5054249",
+        url: "https://elibro.net/es/ereader/consorcioitesm/269173/?prev=as",
         leido: false
     },
     {
         id: 4,
-        url: "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/10480455",
+        url: "https://elibro.net/es/ereader/consorcioitesm/300840?prev=as",
         leido: false
     }
 ];
