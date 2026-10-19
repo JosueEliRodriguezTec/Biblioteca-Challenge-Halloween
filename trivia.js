@@ -8,7 +8,7 @@
 //if(autorizado !== "true"){
 
 //    window.location.href =
-        "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Halloween/";
+ //       "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Halloween/";
 
 //}
 
