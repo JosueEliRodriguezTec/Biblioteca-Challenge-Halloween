@@ -225,41 +225,123 @@ for(let i=0; i<botones.length; i++){
 
 }
 
+
+
 function revisarRespuesta(indice){
 
     let pregunta = preguntasJuego[preguntaActual];
 
-    // Desactivar botones
-    botones.forEach(b=>b.disabled=true);
-
-    if(indice == pregunta.correcta){
-
-    botones[indice].classList.add("correcta");
-
+    // Desactivar botones mientras se procesa la respuesta
     botones.forEach(b => b.disabled = true);
 
-    setTimeout(()=>{
+    if(indice === pregunta.correcta){
 
+        botones[indice].classList.add("correcta");
+
+        // Abrir el libro directamente desde el clic del alumno
         abrirLibro(pregunta.libro);
 
-    },800);
+    }else{
+
+        botones[indice].classList.add("incorrecta");
+
+        setTimeout(() => {
+
+            botones[indice].classList.remove("incorrecta");
+            mostrarIncorrecto();
+
+        }, 700);
+
+    }
 
 }
-    else{
 
-    botones[indice].classList.add("incorrecta");
 
-    setTimeout(()=>{
 
-        botones[indice].classList.remove("incorrecta");
+function abrirLibro(url){
 
-        mostrarIncorrecto();
+    // Abrir el libro en una ventana emergente
+    const ventanaEbook = window.open(
+        url,
+        "bibliotecaEbook",
+        "popup=yes,width=1000,height=750,resizable=yes,scrollbars=yes"
+    );
 
-    },700);
+    // Si el navegador bloquea la apertura
+    if(!ventanaEbook){
+
+        alert(
+            "No se pudo abrir el libro. " +
+            "Permite las ventanas emergentes e inténtalo de nuevo."
+        );
+
+        botones.forEach(b => b.disabled = false);
+        botones.forEach(b => b.classList.remove("correcta"));
+
+        return;
+    }
+
+    let triviaAvanzada = false;
+    let temporizadorCierre;
+
+    // Avanzar una sola vez
+    function avanzarTrivia(){
+
+        if(triviaAvanzada) return;
+
+        triviaAvanzada = true;
+
+        clearInterval(vigilarVentana);
+        clearTimeout(temporizadorCierre);
+
+        cerrarLibro();
+
+    }
+
+    // Detectar si el alumno cierra el libro manualmente
+    const vigilarVentana = setInterval(() => {
+
+        if(ventanaEbook.closed){
+            avanzarTrivia();
+        }
+
+    }, 500);
+
+    // Intentar cerrar el libro después de 5 segundos
+    temporizadorCierre = setTimeout(() => {
+
+        if(!ventanaEbook.closed){
+            ventanaEbook.close();
+        }
+
+        // Comprobar si el navegador permitió cerrarlo
+        setTimeout(() => {
+
+            if(ventanaEbook.closed){
+
+                avanzarTrivia();
+
+            }else{
+
+                // Alternativa si no se pudo cerrar automáticamente
+                const continuar = confirm(
+                    "Si terminaste de consultar el libro, " +
+                    "presiona Aceptar para continuar con la trivia."
+                );
+
+                if(continuar){
+                    avanzarTrivia();
+                }
+
+            }
+
+        }, 300);
+
+    }, 5000);
 
 }
 
-}
+
 
 function mostrarIncorrecto(){
 
@@ -280,13 +362,7 @@ function cerrarIncorrecto(){
 
 }
 
-function abrirLibro(url){
 
-    document.getElementById("iframeLibro").src = url;
-
-    document.getElementById("modalLibro").style.display = "flex";
-
-}
 
 function cerrarLibro(){
 
