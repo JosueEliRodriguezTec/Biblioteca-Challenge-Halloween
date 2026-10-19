@@ -1,208 +1,223 @@
-// =========================================
-// PROTECCIÓN DE ACCESO AL CHALLENGE
-// =========================================
 
-const autorizado =
-    sessionStorage.getItem("challengeIniciado");
+ // =========================================
+ // PROTECCIÓN DE ACCESO AL CHALLENGE
+ // =========================================
 
-if(autorizado !== "true"){
+const autorizado = sessionStorage.getItem("challengeIniciado");
 
+if (autorizado !== "true") {
     window.location.href =
         "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Halloween/";
-
 }
 
 let jugador = JSON.parse(localStorage.getItem("jugador"));
 
-    if(!jugador){
-
-        jugador = {
-
-            puntos:0,
-
-            monedas:0,
-
-            nivel:1,
-
-            librosVisitados:0,
-
-            medalla:"Ninguna"
-
-        };
-
-    }
-
-    let visitados = {
-
-        libro1: false,
-
-        libro2: false,
-
-        libro3: false
-
+if (!jugador) {
+    jugador = {
+        puntos: 0,
+        monedas: 0,
+        nivel: 1,
+        librosVisitados: 0,
+        medalla: "Ninguna"
     };
+}
 
-    let libroPendiente = null;
+let visitados = {
+    libro1: false,
+    libro2: false,
+    libro3: false
+};
 
-    document.getElementById("coins").innerHTML = jugador.monedas;
+let libroPendiente = null;
 
-  function libro1(){
+document.getElementById("coins").innerHTML = jugador.monedas;
 
-    if(visitados.libro1) return;
 
-    libroPendiente = "libro1";
+// =========================================
+// BOTONES DE LIBROS
+// =========================================
+
+function libro1() {
+    if (visitados.libro1 || libroPendiente) return;
 
     abrirLibro(
         "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/3315911",
-        "_blank"
+        "libro1"
     );
+}
 
-}   
-function libro2(){
-
-    if(visitados.libro2) return;
-
-    libroPendiente = "libro2";
+function libro2() {
+    if (visitados.libro2 || libroPendiente) return;
 
     abrirLibro(
         "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/2055685",
-        "_blank"
+        "libro2"
     );
-
 }
 
-function libro3(){
-
-    if(visitados.libro3) return;
-
-    libroPendiente = "libro3";
+function libro3() {
+    if (visitados.libro3 || libroPendiente) return;
 
     abrirLibro(
         "https://libbyapp.com/search/bibliotecatec/search/query-misterio/page-1/5178480",
-        "_blank"
+        "libro3"
+    );
+}
+
+
+// =========================================
+// ABRIR LIBRO Y CERRARLO AUTOMÁTICAMENTE
+// =========================================
+
+function abrirLibro(url, nombreLibro) {
+
+    // Abrir directamente desde el clic del alumno
+    const ventanaEbook = window.open(
+        url,
+        "bibliotecaEbook",
+        "popup=yes,width=1000,height=750,resizable=yes,scrollbars=yes"
     );
 
-}
-
-function abrirLibro(url){
-
-    document.getElementById("iframeLibro").src = url;
-
-    document.getElementById("modalLibro").style.display = "flex";
-
-}
-
-function cerrarLibro(){
-
-    document.getElementById("modalLibro").style.display = "none";
-
-    document.getElementById("iframeLibro").src = "";
-
-    if(libroPendiente){
-
-        sumarMonedas(libroPendiente);
-
-        libroPendiente = null;
-
+    // Si el navegador bloquea la ventana
+    if (!ventanaEbook) {
+        alert(
+            "No se pudo abrir el libro. " +
+            "Permite las ventanas emergentes e inténtalo de nuevo."
+        );
+        return;
     }
 
-}
+    libroPendiente = nombreLibro;
 
-    function sumarMonedas(nombre){
-        console.log("Entró a sumarMonedas:", nombre);
+    let finalizado = false;
+    let temporizadorCierre;
 
-        if(visitados[nombre]){
+    function finalizarVisita() {
 
-            return;
+        if (finalizado) return;
 
+        finalizado = true;
+
+        clearInterval(vigilarVentana);
+        clearTimeout(temporizadorCierre);
+
+        if (libroPendiente === nombreLibro) {
+            sumarMonedas(nombreLibro);
+            libroPendiente = null;
+        }
+    }
+
+    // Detectar si el alumno cierra la ventana manualmente
+    const vigilarVentana = setInterval(() => {
+        if (ventanaEbook.closed) {
+            finalizarVisita();
+        }
+    }, 500);
+
+    // Intentar cerrar el libro después de 5 segundos
+    temporizadorCierre = setTimeout(() => {
+
+        if (!ventanaEbook.closed) {
+            ventanaEbook.close();
         }
 
-        visitados[nombre] = true;
+        setTimeout(() => {
 
-        jugador.monedas += 5;
+            if (ventanaEbook.closed) {
+                finalizarVisita();
+            } else {
 
-        document.getElementById("coins").innerHTML = jugador.monedas;
+                const continuar = confirm(
+                    "Si terminaste de consultar el libro, " +
+                    "presiona Aceptar para continuar."
+                );
 
-        //document.getElementById("progreso").innerHTML =
-        //    jugador.monedas + " / 30 🪙";
+                if (continuar) {
+                    finalizarVisita();
+                }
+            }
 
-            const anim = document.getElementById("coinAnimation");
+        }, 300);
 
-anim.classList.remove("show");
-
-void anim.offsetWidth;
-
-anim.classList.add("show");
-
-// Si ya llegó a 30 monedas
-if(jugador.monedas >= 30){
-
-    confetti({
-
-        particleCount:250,
-
-        spread:180,
-
-        origin:{ y:0.6 }
-
-    });
-
-    document.getElementById("medallaBronce").style.display = "flex";
-
-    const botonContinuar = document.getElementById("continuar");
-
-    botonContinuar.disabled = false;
-
-    botonContinuar.innerHTML = "Continuar al Nivel 2";
-
-}
-//   localStorage.setItem(
-//     "jugador",
-//     JSON.stringify(jugador)
-// );
-
-console.log("Va a cambiar el botón");
-
-let boton = document.getElementById("btn" + nombre.charAt(0).toUpperCase() + nombre.slice(1));
-
-console.log(boton);
-
-boton.disabled = true;
-
-boton.innerHTML = "✅ Visitado";
-
-}
-
-function cerrarMedalla(){
-
-    document.getElementById("medallaBronce").style.display = "none";
-
+    }, 5000);
 }
 
 
+// =========================================
+// SUMAR MONEDAS POR LIBRO VISITADO
+// =========================================
+
+function sumarMonedas(nombre) {
+
+    if (visitados[nombre]) return;
+
+    visitados[nombre] = true;
+
+    jugador.monedas += 5;
+    jugador.librosVisitados =
+        (jugador.librosVisitados || 0) + 1;
+
+    // Guardar el progreso
+    localStorage.setItem("jugador", JSON.stringify(jugador));
+
+    document.getElementById("coins").innerHTML =
+        jugador.monedas;
+
+    // Animación de monedas
+    const anim = document.getElementById("coinAnimation");
+
+    anim.classList.remove("show");
+    void anim.offsetWidth;
+    anim.classList.add("show");
+
+    // Desactivar el botón del libro visitado
+    const boton = document.getElementById(
+        "btn" + nombre.charAt(0).toUpperCase() + nombre.slice(1)
+    );
+
+    if (boton) {
+        boton.disabled = true;
+        boton.innerHTML = "✅ Visitado";
+    }
+
+    // Si ya llegó a 30 monedas
+    if (jugador.monedas >= 30) {
+
+        confetti({
+            particleCount: 250,
+            spread: 180,
+            origin: { y: 0.6 }
+        });
+
+        document.getElementById("medallaBronce").style.display =
+            "flex";
+
+        const botonContinuar =
+            document.getElementById("continuar");
+
+        botonContinuar.disabled = false;
+        botonContinuar.innerHTML = "Continuar al Nivel 2";
+    }
+}
 
 
+// =========================================
+// CERRAR MEDALLA
+// =========================================
 
-//document.addEventListener("visibilitychange", function(){
+function cerrarMedalla() {
+    document.getElementById("medallaBronce").style.display =
+        "none";
+}
 
-   
 
-    //if(document.visibilityState === "visible"){
+// =========================================
+// CONTINUAR AL NIVEL 2
+// =========================================
 
-        //if(libroPendiente){
-
-        
-
-        //    sumarMonedas(libroPendiente);
-
-      //      libroPendiente = null;
-
-    //    }
-
-  //  }
-
-//});
-
-document.getElementById("continuar").addEventListener("click", function() {
-    window.location.href = "transicion.html";
-});
+document.getElementById("continuar").addEventListener(
+    "click",
+    function() {
+        window.location.href = "transicion.html";
+    }
+);
