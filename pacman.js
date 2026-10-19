@@ -554,7 +554,7 @@ if(e.key=="ArrowLeft"){
 // Controles táctiles
 
 document.getElementById("arriba").addEventListener("pointerdown", function(){
- prepararVentanaLibro();
+ 
     direccion = "arriba";
     movimientoX = 0;
     movimientoY = -1;
@@ -562,7 +562,7 @@ document.getElementById("arriba").addEventListener("pointerdown", function(){
 });
 
 document.getElementById("abajo").addEventListener("pointerdown", function(){
- prepararVentanaLibro();
+ 
     direccion = "abajo";
 
     movimientoX = 0;
@@ -571,7 +571,7 @@ document.getElementById("abajo").addEventListener("pointerdown", function(){
 });
 
 document.getElementById("izquierda").addEventListener("pointerdown", function(){
- prepararVentanaLibro();
+ 
     direccion = "izquierda";
 
     movimientoX = -1;
@@ -580,7 +580,7 @@ document.getElementById("izquierda").addEventListener("pointerdown", function(){
 });
 
 document.getElementById("derecha").addEventListener("pointerdown", function(){
- prepararVentanaLibro();
+ 
     direccion = "derecha";
 
     movimientoX = 1;
