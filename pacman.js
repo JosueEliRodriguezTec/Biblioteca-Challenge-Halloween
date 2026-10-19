@@ -20,15 +20,15 @@ document.addEventListener("gestureend", function(e){
 // PROTECCIÓN DE ACCESO AL CHALLENGE
 // =========================================
 
-const autorizado =
-    sessionStorage.getItem("challengeIniciado");
+// const autorizado =
+//     sessionStorage.getItem("challengeIniciado");
 
-if(autorizado !== "true"){
+// if(autorizado !== "true"){
 
-    window.location.href =
-        "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Halloween/";
+//     window.location.href =
+//         "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Halloween/";
 
-}
+// }
 
 let monedas = 30;
 let vidas = 3;
@@ -89,19 +89,80 @@ let fantasmaPaso = 0;
 let fantasmaFila = 0;
 let fantasmaColumna = 0;
 
+
 function abrirLibro(urlLibro){
 
     juegoPausado = true;
 
-    iframe.src = urlLibro;
+    const ventanaEbook = window.open(
+        urlLibro,
+        "bibliotecaEbook",
+        "popup=yes,width=1000,height=750,resizable=yes,scrollbars=yes"
+    );
 
-    modal.style.display = "flex";
+    // Si el navegador bloquea la ventana
+   if(!ventanaEbook){
+  alert("No se pudo abrir el libro. " +
+        "Permite las ventanas emergentes e inténtalo de nuevo.");
+  juegoPausado = false;
+  return false;
+}
 
-    setTimeout(() => {
+    let finalizado = false;
+    let temporizadorCierre;
 
-        cerrarLibro();
+    function cerrarYContinuar(){
 
-    }, 7000);
+        if(finalizado) return;
+
+        finalizado = true;
+
+        clearInterval(vigilarVentana);
+        clearTimeout(temporizadorCierre);
+
+        juegoPausado = false;
+
+    }
+
+    // Detectar si el alumno cierra la ventana manualmente
+    const vigilarVentana = setInterval(() => {
+
+        if(ventanaEbook.closed){
+            cerrarYContinuar();
+        }
+
+    }, 500);
+
+    // Intentar cerrar el libro después de 5 segundos
+    temporizadorCierre = setTimeout(() => {
+
+        if(!ventanaEbook.closed){
+            ventanaEbook.close();
+        }
+
+        setTimeout(() => {
+
+            if(ventanaEbook.closed){
+
+                cerrarYContinuar();
+
+            }else{
+
+                const continuar = confirm(
+                    "Si terminaste de consultar el libro, " +
+                    "presiona Aceptar para continuar con Pac-Man."
+                );
+
+                if(continuar){
+                    cerrarYContinuar();
+                }
+
+            }
+
+        }, 300);
+
+    }, 5000);
+     return true;
 
 }
 
@@ -477,10 +538,11 @@ if(valor === 3){
 
         const libroAleatorio =
             librosDisponibles[indiceAleatorio];
+const ventanaAbierta = abrirLibro(libroAleatorio.url);
 
-        libroAleatorio.leido = true;
-
-        abrirLibro(libroAleatorio.url);
+if (ventanaAbierta) {
+    libroAleatorio.leido = true;
+}
 
     }
 
