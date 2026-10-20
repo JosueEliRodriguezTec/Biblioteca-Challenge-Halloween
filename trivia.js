@@ -56,7 +56,7 @@ const preguntas = [
 
         correcta: 0,
 
-        libro: "https://libbyapp.com/search/bibliotecatec/search/query-terror/page-1/12478887"
+        libro: "https://elibro.net/es/ereader/consorcioitesm/190978"
     },
 
     {
