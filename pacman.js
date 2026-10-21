@@ -20,15 +20,15 @@ document.addEventListener("gestureend", function(e){
 // PROTECCIÓN DE ACCESO AL CHALLENGE
 // =========================================
 
-// const autorizado =
-//     sessionStorage.getItem("challengeIniciado");
+ const autorizado =
+     sessionStorage.getItem("challengeIniciado");
 
-// if(autorizado !== "true"){
+ if(autorizado !== "true"){
 
-//     window.location.href =
-//         "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Halloween/";
+     window.location.href =
+         "https://josueelirodrigueztec.github.io/Biblioteca-Challenge-Halloween/";
 
-// }
+}
 
 let monedas = 30;
 let vidas = 3;
