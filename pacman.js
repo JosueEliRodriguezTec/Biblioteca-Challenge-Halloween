@@ -206,7 +206,7 @@ function controlarCierreLibro(ventanaEbook) {
                 if (continuar) cerrarYContinuar();
             }
         }, 300);
-    }, 3500);
+    }, 4200);
 
     return true;
 }
